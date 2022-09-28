@@ -1,0 +1,90 @@
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
+<div class="mt-20 flex items-center space-x-2 overflow-x-auto overflow-y-hidden justify-center flex-nowrap dark:text-gray-100">
+  <div class="actions px-8 pt-4 mb-4"><%= link_to "New", new_office_forum_path, class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %></div>
+</div>
+
+<div class="flex justify-center mt-2 mx-auto mb-12">
+  <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+    <div class="min-w-full">
+      <table class="w-full text-sm text-gray-500 dark:text-gray-400 text-center">
+        <thead class="text-xs uppercase bg-gray-700 text-gray-400">
+        <tr>
+          <th scope="col" class="py-3 px-6">
+            Title
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Date
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Images
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Category
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Comments
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Status
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Action
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @forums.each do |f| %>
+          <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-center text-gray-500">
+            <div class=" border-gray-700 min-w-full" >
+              <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white">
+                <%= f.title %>
+              </th>
+              <td class="py-4 px-6">
+                <%= f.created_at.strftime("%d.%m.%Y") %>
+              </td>
+              <td class="py-4 px-6">
+                <% if f.images.attached? %>
+                  <div class="flex flex-row-reverse justify-around -space-x-3 space-x-reverse">
+                    <div class="flex flex-row-reverse justify-end -space-x-3 space-x-reverse">
+                      <% f.images.each do |image| %>
+                        <div class="relative flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-full bg-gray-100 text-sm font-bold uppercase text-gray-800 ring ring-yellow-500">
+                          <%= image_tag image, class:"h-full w-full rounded-full object-cover object-center" %>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <%= f.fforums.map(&:name).sort.join(", ") %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <%= f.comments.size %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <%= f.status %>
+              </td>
+              <td class="py-4 px-6">
+                <%= link_to(forum_path(f), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                  <i class="material-icons-outlined text-base">visibility</i>
+                <% end %>
+                <%= link_to(edit_office_forum_path(f), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                  <i class="material-icons-outlined text-base">edit</i>
+                <% end %>
+                <%= link_to(office_forum_path(f), data: { "turbo-method": :delete,
+                                                            turbo_confirm: "You sure?" }, class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                  <i class="material-icons-round text-base">delete_outline</i>
+                <% end %>
+              </td>
+            </div>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+

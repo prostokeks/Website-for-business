@@ -1,0 +1,61 @@
+<div class="text-white">
+  <div class="mt-2 ml-2">
+    <% if @user.avatar.attached? %>
+      <div class="relative flex h-16 w-16 shrink-0 select-none items-center justify-center rounded-full bg-gray-100 text-sm font-bold uppercase text-gray-800">
+        <%= image_tag @user.avatar, class:"h-full w-full rounded-full object-cover object-center" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="mt-2 ml-2">
+    <%= @user.name %> <%= @user.last_name %>
+  </div>
+  <div class="mt-2 ml-2">
+    <p>Projects</p>
+    <p>Active Projects</p>
+    <% @user.products.each do |u| %>
+      <% if u.status == "active" %>
+        <%= u.title %>
+      <% end %>
+    <% end %>
+    <p>Passive Projects</p>
+    <% @user.products.each do |u| %>
+      <% if u.status == "passive" %>
+        <%= u.title %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="mt-2 ml-2">
+    <p>Role:</p>
+    <%= @user.role %>
+  </div>
+  <div class="mt-2 ml-2">
+    <p>Level:</p>
+    <%= @user.level %>
+  </div>
+  <div class="mt-2 ml-2">
+    <p>Phone number:</p>
+    <%= @user.phone %>
+  </div>
+  <div class="mt-2 ml-2">
+    <p>About me:</p>
+    <%= @user.about %>
+  </div>
+  <div class="mt-2 ml-2">
+    <p>Skills:</p>
+    <% @user.skills.each do |u| %>
+      <%= u.name %>
+    <% end %>
+  </div>
+  <div class="mt-2 ml-2">
+    <p>Hobbies:</p>
+    <% @user.hobbies.each do |u| %>
+      <%= u.name %>
+    <% end %>
+  </div>
+  <div class="mt-2 ml-2">
+    <p>Languages:</p>
+    <%= @user.languages.map(&:name).sort.join(", ") %>
+
+  </div>
+  
+</div>

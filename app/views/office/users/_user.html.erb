@@ -1,0 +1,11 @@
+<div class="px-5 py-4 flex items-center cursor-pointer border-l-4 border-l-transparent hover:bg-slate-100">
+  <%= link_to(office_user_path(user.id), class:"flex items-center p-2 text-base font-normal rounded-lg") do %>
+    <%= image_tag user.avatar, class: "h-12 w-12 rounded-full ring ring-blue-500" %>
+    <div class="ml-4">
+    <p class="text-md font-semibold m-0 p-0"><%= user.name %> <%= user.last_name %></p>
+    </div>
+  <% end %>
+</div>
+
+
+

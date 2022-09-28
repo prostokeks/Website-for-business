@@ -1,0 +1,51 @@
+<article class="py-24 w-4/5 mx-auto self-center">
+  <div class="w-full mx-auto mb-12 text-left md:w-3/4 lg:w-1/2">
+    <% if @internalp.avatar.attached? %>
+      <%= image_tag @internalp.avatar, class: "object-cover w-full h-64 bg-center rounded-lg" %>
+    <% else %>
+      <img role="presentation" class="object-cover w-full rounded h-44 dark:bg-gray-500" src="https://frusia.pro/files/2020-03/0007-preview-horz-v4.svg">
+    <% end %>
+    <h1 class="mb-3 text-3xl font-bold leading-tight text-white md:text-4xl pt-4">
+      <%= @internalp.title %>
+    </h1>
+    <div>
+      <p class="text-sm text-gray-500"><%= @internalp.created_at.strftime("%d %b %Y") %></p>
+    </div>
+  </div>
+
+  <div class="w-full mx-auto prose md:w-3/4 lg:w-1/2 text-white">
+    <%= @internalp.content %>
+  </div>
+  <div class="w-full mx-auto prose md:w-3/4 lg:w-1/2 pt-8">
+    <div class="flex flex-row flex-wrap justify-center p-2">
+      <% if @internalp.images.attached? %>
+        <% @internalp.images.each do |img| %>
+          <p><%= image_tag img, class: "w-52 h-52 rounded-lg center m-2" %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <% if @internalp.users.size > 0 %>
+  <div class="container flex flex-col items-center justify-center p-4 mx-auto space-y-8 sm:p-10 text-gray-100 mt-4">
+    <h3 class="text-2xl font-bold leading-none text-center sm:text-5xl">Team</h3>
+    <div class="flex flex-row flex-wrap-reverse justify-center">
+      <% @internalp.users.each do |u| %>
+        <%= link_to (office_user_profile_path(u.id)) do %>
+          <div class="flex flex-col justify-center m-8 text-center">
+            <% if u.avatar.attached? %>
+              <%= image_tag u.avatar, class: "self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500"%>
+            <% else %>
+              <img class="self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500" src="https://st2.depositphotos.com/47577860/46283/v/450/depositphotos_462836132-stock-illustration-assassin-deadpool-face-icon.jpg" alt="">
+            <% end %>
+            <p class="text-xl font-semibold leading-tight"><%= u.name %> <%= u.last_name %></p>
+            <p class="dark:text-gray-400"><%= u.role %></p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</article>
+<div class="flex items-center space-x-2 overflow-x-auto overflow-y-hidden justify-center flex-nowrap dark:text-gray-100">
+  <div class="actions px-8 pt-4 mb-4"><%= link_to "Back", :back , class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %></div>
+</div>

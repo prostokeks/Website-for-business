@@ -1,0 +1,12 @@
+<section class="bg-gray-800 text-gray-100">
+  <div class="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
+    <div id="blogs"  class="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <%= render @blogs %>
+    </div>
+    <div class="flex justify-center">
+      <div id="next_link">
+        <%= button_to "Load more posts...", pagy_url_for(@pagy, @pagy.next), class:"px-6 py-3 text-sm rounded-md hover:underline bg-gray-900 text-gray-400" %>
+      </div>
+    </div>
+  </div>
+</section>

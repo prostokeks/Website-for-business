@@ -1,0 +1,79 @@
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
+<div id="<%= dom_id forum %>">
+  <% if @forums %>
+    <%= link_to(forum, class:"max-w-sm mx-auto group hover:no-underline focus:no-underline bg-gray-900") do %>
+      <% if forum.avatar.attached? %>
+        <%= image_tag forum.avatar, class: "object-cover w-full rounded h-44 dark:bg-gray-500" %>
+      <% else %>
+        <img role="presentation" class="object-cover w-full rounded h-44 dark:bg-gray-500" src="https://i.pinimg.com/originals/a5/8f/44/a58f448bc0e25ca345942adc3c5e0646.png">
+      <% end %>
+      <div class="p-6 space-y-2 bg-gray-900 items-text">
+        <h3 class="text-2xl font-semibold"><%= forum.title %></h3>
+        <span class="text-xs dark:text-gray-400"><%= forum.created_at.strftime("%d.%m.%Y") %></span>
+        <p><%= forum.body %></p>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="flex items-center space-x-2 overflow-x-auto overflow-y-hidden justify-center flex-nowrap dark:text-gray-100">
+      <div class="actions px-8 pt-12 mb-4"><%= link_to "Back", :back , class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %></div>
+    </div>
+    <article class="px-4 py-8 mx-auto max-w-7xl">
+      <div class="w-full mx-auto mb-12 text-left md:w-3/4 lg:w-1/2">
+        <% if forum.avatar.attached? %>
+          <%= image_tag forum.avatar, class: "object-cover w-full h-64 bg-center rounded-lg" %>
+        <% else %>
+          <img role="presentation" class="object-cover w-full rounded h-44 dark:bg-gray-500" src="https://frusia.pro/files/2020-03/0007-preview-horz-v4.svg">
+        <% end %>
+        <h1 class="mb-3 text-3xl font-bold leading-tight text-white md:text-4xl pt-4">
+          <%= forum.title %>
+        </h1>
+        <div>
+          <p class="text-sm text-gray-500"><%= forum.created_at.strftime("%d %b %Y") %></p>
+        </div>
+      </div>
+      <div class="w-full mx-auto prose md:w-3/4 lg:w-1/2 text-white">
+        <%= forum.body %>
+      </div>
+      <div class="w-full mx-auto prose md:w-3/4 lg:w-1/2 pt-8">
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2">
+          <% if forum.images.attached? %>
+            <% forum.images.each do |img| %>
+              <p><%= image_tag img, class: "w-52 h-52 rounded-lg" %></p>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </article>
+
+  <% for c in forum.comments %>
+    <div class="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100 my-4">
+      <div class="flex justify-between p-4">
+
+      <div class="flex space-x-4">
+          <div>
+            <% if User.find(c.user_id).avatar.attached? %>
+              <%= image_tag User.find(c.user_id).avatar, class: "object-cover w-12 h-12 rounded-full dark:bg-gray-500" %>
+            <% else %>
+              <img src="https://source.unsplash.com/100x100/?portrait" alt="" class="object-cover w-12 h-12 rounded-full dark:bg-gray-500">
+            <% end %>
+          </div>
+          <div>
+            <h4 class="font-bold"><%= User.find(c.user_id).name %> <%= User.find(c.user_id).last_name %></h4>
+            <span class="text-xs dark:text-gray-400"><%= forum.created_at.strftime("%d %b %Y") %></span>
+          </div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <%= link_to(edit_forum_comment_path(forum, c), class: "text-gray-400 hover:text-blue-500 w-5 h-5 fill-current") do %>
+            <i class="material-icons-outlined text-base">edit</i>
+          <% end %>
+        </div>
+      </div>
+      <div class="p-4 space-y-2 text-sm dark:text-gray-400">
+        <p><%= c.content %></p>
+      </div>
+    </div>
+  <% end %>
+    <%= render "comments/form" %>
+  <% end %>
+</div>

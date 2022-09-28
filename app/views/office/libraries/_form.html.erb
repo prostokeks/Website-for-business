@@ -1,0 +1,74 @@
+<% if action_name == "new" %>
+  <div class="w-full max-w-lg mx-auto mt-12">
+    <%= form_with(url: create_libraries_path, model: @library) do |b| %>
+      <div class="mb-6">
+        <%= b.label :title, class: "block mb-2 text-sm font-medium text-gray-300" %>
+        <%= b.text_field :title, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Title" %>
+      </div>
+      <div class="mb-6">
+        <%= b.label :content, class: "block mb-2 text-sm font-medium text-gray-300" %>
+        <%= b.text_area :body, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Content" %>
+      </div>
+      <div class="mb-6">
+        <%= b.label :avatar, class: "block mb-2 text-sm font-medium text-gray-300" %>
+        <%= b.file_field :avatar, class: "text-gray-300 text-sm" %>
+      </div>
+      <div class="mb-6">
+        <%= b.label "Category", class: "block mb-2 text-sm font-medium text-gray-300" %>
+        <%= b.collection_check_boxes :flibrary_ids, Flibrary.all, :id, :name do |l| %>
+        <div class="collection-check-box items-center w-full px-4 py-1 text-sm transition duration-500 ease-in-out transform rounded-lg focus:shadow-outline hover:bg-gray-900 text-gray-300">
+          <%= l.check_box %>
+          <%= l.label %>
+        </div>
+        <% end %>
+      </div>
+      <div class="mb-6">
+        <%= b.label "Author", class: "block mb-2 text-sm font-medium text-gray-300" %>
+        <%= b.collection_check_boxes :user_ids, User.all, :id, :name_last_name do |u| %>
+          <div class="collection-check-box items-center w-full px-4 py-1 text-sm transition duration-500 ease-in-out transform rounded-lg focus:shadow-outline hover:bg-gray-900 text-gray-300">
+            <%= u.check_box %>
+            <%= u.label %>
+          </div>
+        <% end %>
+      </div>
+      <%= b.submit "Submit", class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="w-full max-w-lg mx-auto mt-12">
+  <%= form_with model: @library do |b| %>
+      <div class="mb-6">
+        <%= b.label :title, class: "block mb-2 text-sm font-medium text-gray-300" %>
+        <%= b.text_field :title, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Title" %>
+      </div>
+      <div class="mb-6">
+        <%= b.label :content, class: "block mb-2 text-sm font-medium text-gray-300" %>
+        <%= b.text_area :body, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Content" %>
+      </div>
+      <div class="mb-6">
+        <%= b.label :avatar, class: "block mb-2 text-sm font-medium text-gray-300" %>
+        <%= b.file_field :avatar, class: "text-gray-300 text-sm" %>
+      </div>
+      <div class="mb-6">
+        <%= b.label "Category", class: "block mb-2 text-sm font-medium text-gray-300" %>
+        <%= b.collection_check_boxes :flibrary_ids, Flibrary.all, :id, :name do |l| %>
+          <div class="collection-check-box items-center w-full px-4 py-1 text-sm transition duration-500 ease-in-out transform rounded-lg focus:shadow-outline hover:bg-gray-900 text-gray-300">
+            <%= l.check_box %>
+            <%= l.label %>
+          </div>
+        <% end %>
+      </div>
+      <div class="mb-6">
+        <%= b.label "Author", class: "block mb-2 text-sm font-medium text-gray-300" %>
+        <%= b.collection_check_boxes :user_ids, User.all, :id, :name_last_name do |u| %>
+          <div class="collection-check-box items-center w-full px-4 py-1 text-sm transition duration-500 ease-in-out transform rounded-lg focus:shadow-outline hover:bg-gray-900 text-gray-300">
+            <%= u.check_box %>
+            <%= u.label %>
+          </div>
+        <% end %>
+      </div>
+      <%= b.submit "Submit", class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %>
+  <% end %>
+  </div>
+<% end %>
+
