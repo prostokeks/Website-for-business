@@ -21,7 +21,7 @@ class LibrariesController < ApplicationController
     if @library.save
       redirect_to library_path(@library)
     else
-      render :new
+      render "office/libraries/new"
     end
   end
 
@@ -32,7 +32,7 @@ class LibrariesController < ApplicationController
     if @library.update(library_params)
       redirect_to library_path(@library)
     else
-      render :edit
+      render "office/libraries/edit"
     end
   end
 

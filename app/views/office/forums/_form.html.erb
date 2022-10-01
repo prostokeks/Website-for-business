@@ -2,11 +2,11 @@
   <%= form_with model: @forum do |f| %>
     <div class="mb-6">
       <%= f.label :title, class: "block mb-2 text-sm font-medium text-gray-300" %>
-      <%= f.text_field :title, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Title" %>
+      <%= f.text_field :title, required: true, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Title" %>
     </div>
     <div class="mb-6">
       <%= f.label :content, class: "block mb-2 text-sm font-medium text-gray-300" %>
-      <%= f.text_area :body, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Content" %>
+      <%= f.text_area :body, required: true, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Content" %>
     </div>
     <div class="mb-6">
       <%= f.label :status, class: "block mb-2 text-sm font-medium text-gray-300" %>

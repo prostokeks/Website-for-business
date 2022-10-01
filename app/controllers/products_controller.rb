@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
     if @internalp.save
       redirect_to office_products_path
     else
-      render :new
+      render "office/products/new"
     end
   end
 
@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
     if @internalp.update product_params
       redirect_to office_products_path
     else
-      render :new
+      render "office/products/edit"
     end
   end
 

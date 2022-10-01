@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
 
-  before_action :set_blog, only: %i[show edit update]
+  before_action :set_blog, only: %i[show update]
 
   def index
     @blogs = Blog.all
@@ -12,27 +12,20 @@ class BlogsController < ApplicationController
     end
   end
 
-  def new
-    @blog = Blog.new
-  end
-
   def create
     @blog = Blog.new(blog_params)
     if @blog.save
       redirect_to blog_path(@blog)
     else
-      render :new
+      render "office/blogs/new"
     end
-  end
-
-  def edit
   end
 
   def update
     if @blog.update(blog_params)
       redirect_to blog_path(@blog)
     else
-      render :edit
+      render "office/blogs/edit"
     end
   end
 

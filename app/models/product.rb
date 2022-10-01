@@ -8,4 +8,8 @@ class Product < ApplicationRecord
   STATUS=[:active, :passive]
   TYPE=[:internal, :outsourcing]
 
+  validates :title, uniqueness: true, presence: true, length: {maximum: 100}
+  validates :content, presence: true, length: {in: 100..3000}
+
+
 end

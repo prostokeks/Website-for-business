@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :skills
   has_and_belongs_to_many :hobbies
   has_and_belongs_to_many :languages
+  has_and_belongs_to_many :salaries
 
   def name_with_initial
     "(#{role}) #{name} #{last_name}"
@@ -28,6 +29,7 @@ class User < ApplicationRecord
 
   ROLE=["Web Designer", "Project Manager", "Back-end Developer", "Front-end Developer"]
   LEVEL=["Junior 1", "Junior 2", "Junior 3", "Middle 1", "Middle 2", "Middle 3", "Senior 1", "Senior 2", "Senior 3"]
-  #validates :role, inclusion: {in: User::ROLE}
+
+  validates :role, inclusion: {in: User::ROLE}, on: :update
 
 end

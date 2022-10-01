@@ -20,6 +20,10 @@ class Office::UsersController < OfficeController
     @user = User.find(params[:id])
   end
 
+  def salary
+    @user = User.find(params[:id])
+  end
+
   private
 
   def get_name(user1, user2)

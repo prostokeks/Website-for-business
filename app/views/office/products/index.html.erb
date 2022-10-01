@@ -36,52 +36,52 @@
         </tr>
         </thead>
         <tbody>
-    <% @internalps.each do |i| %>
-<tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-center text-gray-500">
-  <div class=" border-gray-700 min-w-full" >
-  <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white">
-      <%= i.title %>
-    </th>
-    <td class="py-4 px-6">
-      <%= i.created_at.strftime("%d.%m.%Y") %>
-    </td>
-    <td class="py-4 px-6">
-      <% if i.images.attached? %>
-        <div class="flex flex-row-reverse justify-around -space-x-3 space-x-reverse">
-          <div class="flex flex-row-reverse justify-end -space-x-3 space-x-reverse">
-            <% i.images.each do |image| %>
-              <div class="relative flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-full bg-gray-100 text-sm font-bold uppercase text-gray-800 ring ring-yellow-500">
-                <%= image_tag image, class:"h-full w-full rounded-full object-cover object-center" %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </td>
-    <td class="py-4 px-6 text-white">
-      <%= i.ptype %>
-    </td>
-    <td class="py-4 px-6 text-white">
-      <%= i.users.size %>
-    </td>
-    <td class="py-4 px-6 text-white">
-      <%= i.status %>
-    </td>
-    <td class="py-4 px-6">
-      <%= link_to(office_product_path(i), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
-        <i class="material-icons-outlined text-base">visibility</i>
-      <% end %>
-      <%= link_to(edit_office_product_path(i), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
-        <i class="material-icons-outlined text-base">edit</i>
-      <% end %>
-      <%= link_to(office_product_path(i), data: { "turbo-method": :delete,
-                                                  turbo_confirm: "You sure?" }, class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
-        <i class="material-icons-round text-base">delete_outline</i>
-      <% end %>
-    </td>
-  </div>
-</tr>
-    <% end %>
+        <% @internalps.each do |i| %>
+          <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-center text-gray-500">
+            <div class=" border-gray-700 min-w-full" >
+              <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white">
+                <%= i.title %>
+              </th>
+              <td class="py-4 px-6">
+                <%= i.created_at.strftime("%d.%m.%Y") %>
+              </td>
+              <td class="py-4 px-6">
+                <% if i.images.attached? %>
+                  <div class="flex flex-row-reverse justify-around -space-x-3 space-x-reverse">
+                    <div class="flex flex-row-reverse justify-end -space-x-3 space-x-reverse">
+                      <% i.images.each do |image| %>
+                        <div class="relative flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-full bg-gray-100 text-sm font-bold uppercase text-gray-800 ring ring-yellow-500">
+                          <%= image_tag image, class:"h-full w-full rounded-full object-cover object-center" %>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <%= i.ptype %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <%= i.users.size %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <%= i.status %>
+              </td>
+              <td class="py-4 px-6">
+                <%= link_to(office_product_path(i), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                  <i class="material-icons-outlined text-base">visibility</i>
+                <% end %>
+                <%= link_to(edit_office_product_path(i), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                  <i class="material-icons-outlined text-base">edit</i>
+                <% end %>
+                <%= link_to(office_product_path(i), data: { "turbo-method": :delete,
+                                                            turbo_confirm: "You sure?" }, class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                  <i class="material-icons-round text-base">delete_outline</i>
+                <% end %>
+              </td>
+            </div>
+          </tr>
+        <% end %>
         </tbody>
       </table>
     </div>

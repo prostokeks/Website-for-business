@@ -1,18 +1,20 @@
 Rails.application.routes.draw do
-  get 'rooms/index'
 
   devise_for :users, controllers: {registrations: "users/registrations",
                                    sessions: "users/sessions"}
 
   root "static_pages#index"
 
-  get 'static_pages/careers'
+  get 'careers', to: 'static_pages#careers'
   get 'static_pages/portfolio'
-  get 'static_pages/team'
+  get 'team', to: 'static_pages#team'
   get 'products/outsourcing'
   get 'products/internal'
-  get 'office/static_back_pages/team'
+  get 'office/team', to: 'office/static_back_pages#team'
   get 'office/users/profile/:id', to: 'office/users#profile', as: 'office/user/profile'
+  get 'office/salaries/users/:id', to: 'office/users#salary', as: 'office/user/salary'
+  get 'office/docs', to: 'office/static_back_pages#docs'
+  get 'office/dashboard', to: 'office/static_back_pages#index'
 
 
   resources :blogs do
@@ -40,6 +42,7 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :messages
   end
+  resources :salaries
 
   namespace :office do
     resources :users
@@ -48,9 +51,9 @@ Rails.application.routes.draw do
     resources :rooms do
       resources :messages
     end
-    resources :static_back_pages
     resources :forums
     resources :products
+    resources :salaries
     resources :libraries do
     collection do
       post :index

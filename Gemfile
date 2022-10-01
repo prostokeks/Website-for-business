@@ -83,3 +83,5 @@ gem "pagy", "~> 5.10"
 gem "view_component", "~> 2.61"
 
 gem "ransack", "~> 3.2"
+
+gem "chartkick", "~> 4.2"

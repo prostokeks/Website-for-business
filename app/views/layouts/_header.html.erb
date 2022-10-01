@@ -31,7 +31,7 @@
 
               <% if user_signed_in? #and current_user.workgroup == "admin" %>
                 <div class="border-b border-gray-800"></div>
-                <%= link_to(office_static_back_pages_path, class: "block px-4 py-2 flex items-center text-gray-400 hover:text-blue-500 group") do %>
+                <%= link_to(office_dashboard_path, class: "block px-4 py-2 flex items-center text-gray-400 hover:text-blue-500 group") do %>
                   <svg class="mr-2 w-4 h-4 text-gray-500 group-hover:text-blue-500" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M2.5 2v6h6M21.5 22v-6h-6"/><path d="M22 11.5A10 10 0 0 0 3.2 7.2M2 12.5a10 10 0 0 0 18.8 4.2"/></svg>
                   <span>Office</span>
                 <% end %>
@@ -131,7 +131,7 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to(static_pages_careers_path, class: "flex items-center text-gray-400 hover:text-blue-500 group") do %>
+                  <%= link_to(careers_path, class: "flex items-center text-gray-400 hover:text-blue-500 group") do %>
                     <svg class="mr-2 w-4 h-4 text-gray-500 group-hover:text-blue-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.802 8.249 16 9.1 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a4.002 4.002 0 01-.041-2.08l-.08.08-1.53-1.533A5.98 5.98 0 004 10c0 .954.223 1.856.619 2.657l1.54-1.54zm1.088-6.45A5.974 5.974 0 0110 4c.954 0 1.856.223 2.657.619l-1.54 1.54a4.002 4.002 0 00-2.346.033L7.246 4.668zM12 10a2 2 0 11-4 0 2 2 0 014 0z" clip-rule="evenodd"></path></svg>
                     Careers
                   <% end %>
@@ -151,7 +151,7 @@
 
         </li>
         <li>
-          <%= link_to "Team", static_pages_team_path, class: "block py-2 pr-4 pl-3 text-gray-400 border-b md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0 hover:bg-gray-700 border-gray-700" %>
+          <%= link_to "Team", team_path, class: "block py-2 pr-4 pl-3 text-gray-400 border-b md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0 hover:bg-gray-700 border-gray-700" %>
         </li>
       </ul>
     </div>

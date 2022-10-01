@@ -1,10 +1,6 @@
 class ContactsController < ApplicationController
 
-  before_action :set_contact, only: %i[show destroy]
-
-  def index
-    @contacts = Contact.all
-  end
+  before_action :set_contact, only: :destroy
 
   def new
     @contact = Contact.new
@@ -17,9 +13,6 @@ class ContactsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
   end
 
   def destroy

@@ -1,0 +1,169 @@
+
+<%= @user.name %>
+<%= @user.last_name %>
+
+<div class="flex justify-center mt-2 mx-auto">
+  <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+    <div class="min-w-full">
+      <table class="w-full text-sm text-gray-500 dark:text-gray-400 text-center">
+        <thead class="text-xs uppercase bg-gray-700 text-gray-400">
+        <tr>
+          <th></th>
+          <th colspan="12">Month</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th scope="col" class="py-3 px-6">
+            Type
+          </th>
+          <th scope="col" class="py-3 px-6">
+            1
+          </th>
+          <th scope="col" class="py-3 px-6">
+            2
+          </th>
+          <th scope="col" class="py-3 px-6">
+            3
+          </th>
+          <th scope="col" class="py-3 px-6">
+            4
+          </th>
+          <th scope="col" class="py-3 px-6">
+            5
+          </th>
+          <th scope="col" class="py-3 px-6">
+            6
+          </th>
+          <th scope="col" class="py-3 px-6">
+            7
+          </th>
+          <th scope="col" class="py-3 px-6">
+            8
+          </th>
+          <th scope="col" class="py-3 px-6">
+            9
+          </th>
+          <th scope="col" class="py-3 px-6">
+            10
+          </th>
+          <th scope="col" class="py-3 px-6">
+            11
+          </th>
+          <th scope="col" class="py-3 px-6">
+            12
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Total
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
+            <div class=" border-gray-700 min-w-full" >
+              <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
+                Salary
+              </th>
+              <td class="py-4 px-6 text-white">
+                <% @user.salaries.each do |s| %>
+                  <% if s.month == "January" %>
+                    <%= s.salary %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <% @user.salaries.each do |s| %>
+                  <% if s.month == "February" %>
+                    <%= s.salary %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <% @user.salaries.each do |s| %>
+                  <% if s.month == "March" %>
+                    <%= s.salary %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <% @user.salaries.each do |s| %>
+                  <% if s.month == "April" %>
+                    <%= s.salary %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <% @user.salaries.each do |s| %>
+                  <% if s.month == "May" %>
+                    <%= s.salary %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <% @user.salaries.each do |s| %>
+                  <% if s.month == "June" %>
+                    <%= s.salary %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <% @user.salaries.each do |s| %>
+                  <% if s.month == "July" %>
+                    <%= s.salary %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <% @user.salaries.each do |s| %>
+                  <% if s.month == "August" %>
+                    <%= s.salary %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <% @user.salaries.each do |s| %>
+                  <% if s.month == "September" %>
+                    <%= s.salary %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <% @user.salaries.each do |s| %>
+                  <% if s.month == "October" %>
+                    <%= s.salary %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <% @user.salaries.each do |s| %>
+                  <% if s.month == "November" %>
+                    <%= s.salary %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <% @user.salaries.each do |s| %>
+                  <% if s.month == "December" %>
+                    <%= s.salary %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td class="py-4 px-6 text-white font-medium whitespace-nowrap">
+                <%= @user.salaries.map(&:salary).sum %>
+              </td>
+            </div>
+          </tr>
+          <% @user.products.each do |u| %>
+            <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
+              <div class=" border-gray-700 min-w-full" >
+                <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
+                  <%= u.title %>
+                </th>
+              </div>
+            </tr>
+          <% end %>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
