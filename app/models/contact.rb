@@ -6,4 +6,7 @@ class Contact < ApplicationRecord
   validates :email, presence: true, length: {in: 10..100}
   validates_format_of :email, with: Devise::email_regexp
 
+  STATUS=["Closed", "Opend"]
+
+
 end

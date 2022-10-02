@@ -1,12 +1,15 @@
 class Office::ContactsController < OfficeController
 
-  before_action :set_contact, only: %i[show destroy]
+  before_action :set_contact, only: %i[show edit destroy]
 
   def index
-    @contacts = Contact.all
+    @contacts = Contact.order(created_at: :desc)
   end
 
   def show
+  end
+
+  def edit
   end
 
   def destroy
@@ -17,7 +20,7 @@ class Office::ContactsController < OfficeController
   private
 
   def contact_params
-    params.require(:contact).permit(:name, :body, :email, :mobile)
+    params.require(:contact).permit(:name, :body, :email, :mobile, :status)
   end
 
   def set_contact

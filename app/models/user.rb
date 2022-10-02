@@ -29,6 +29,7 @@ class User < ApplicationRecord
 
   ROLE=["Web Designer", "Project Manager", "Back-end Developer", "Front-end Developer"]
   LEVEL=["Junior 1", "Junior 2", "Junior 3", "Middle 1", "Middle 2", "Middle 3", "Senior 1", "Senior 2", "Senior 3"]
+  WORKGROUP=["User", "Team_Lead", "HR", "CEO", "Employee", "Accountant", "Manager"]
 
   validates :role, inclusion: {in: User::ROLE}, on: :update
 

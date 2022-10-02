@@ -34,6 +34,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :work_group %><br />
+    <%= f.select :work_group, User::WORKGROUP %>
+  </div>
+
+  <div class="field">
     <%= f.label :phone %><br />
     <%= f.text_field :phone %>
   </div>

@@ -1,0 +1,22 @@
+<article class="py-24 w-4/5 mx-auto self-center">
+  <div class="w-full mx-auto mb-12 text-left md:w-3/4 lg:w-1/2">
+    <p class="mb-2 leading-tight text-white pt-2">
+      <%= @contact.name %>
+    </p>
+    <p class="mb-2 leading-tight text-white pt-2">
+      <%= @contact.email %>
+    </p>
+    <p class="mb-2 leading-tight text-white pt-2">
+      <%= @contact.mobile %>
+    </p>
+    <div>
+      <p class="text-sm text-gray-500"><%= @contact.created_at.strftime("%d %b %Y") %></p>
+    </div>
+  </div>
+  <div class="w-full mx-auto prose md:w-3/4 lg:w-1/2 text-white">
+    <%= @contact.body %>
+  </div>
+</article>
+<div class="flex items-center space-x-2 overflow-x-auto overflow-y-hidden justify-center flex-nowrap dark:text-gray-100">
+  <div class="actions px-8 pt-4 mb-4"><%= link_to "Back", :back , class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %></div>
+</div>

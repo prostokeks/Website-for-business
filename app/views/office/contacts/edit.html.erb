@@ -1,0 +1,25 @@
+<div class="w-full max-w-lg mx-auto mt-12">
+  <%= form_with model: @contact do |c| %>
+    <div class="mb-6">
+      <%= c.label "Full name", class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= c.text_field :name, required: true, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Full name" %>
+    </div>
+    <div class="mb-6">
+      <%= c.label :mobile, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= c.text_field :mobile, required: true, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "+380638968944" %>
+    </div>
+    <div class="mb-6">
+      <%= c.label :email, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= c.text_field :email, required: true, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "dosi@gmail.com" %>
+    </div>
+    <div class="mb-6">
+      <%= c.label :status, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= c.select :status, Contact::STATUS %>
+    </div>
+    <div class="mb-6">
+      <%= c.label :message, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= c.text_area :body, required: true, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light" %>
+    </div>
+    <%= c.submit "Submit", class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %>
+  <% end %>
+</div>

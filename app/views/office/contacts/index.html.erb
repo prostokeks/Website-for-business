@@ -1,6 +1,67 @@
-<% @contacts.each do |c| %>
-  <p><%= c.name %></p>
-  <p><%= c.mobile %></p>
-  <p><%= c.email %></p>
-  <p><%= c.body %></p>
-<% end %>
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
+<div class="flex justify-center mt-20 mx-auto">
+  <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+    <div class="min-w-full">
+      <table class="w-full text-sm text-gray-400 text-center">
+        <thead class="text-xs uppercase bg-gray-700 text-gray-400">
+        <tr>
+          <th scope="col" class="py-3 px-6">
+            Full name
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Date
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Mobile
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Email
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Status
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Action
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @contacts.each do |c| %>
+          <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-center text-gray-500">
+            <div class=" border-gray-700 min-w-full" >
+              <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
+                <p><%= c.name %></p>
+              </th>
+              <td class="py-4 px-6">
+                <%= c.created_at.strftime("%d.%m.%Y") %>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <p><%= c.mobile %></p>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <p><%= c.email %></p>
+              </td>
+              <td class="py-4 px-6 text-white">
+                <p><%= c.status %></p>
+              </td>
+              <td class="py-4 px-6">
+                <%= link_to(office_contact_path(c), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                  <i class="material-icons-outlined text-base">visibility</i>
+                <% end %>
+                <%= link_to(edit_office_contact_path(c), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                  <i class="material-icons-outlined text-base">edit</i>
+                <% end %>
+                <%= link_to(office_contact_path(c), data: { "turbo-method": :delete,
+                                                         turbo_confirm: "You sure?" }, class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                  <i class="material-icons-round text-base">delete_outline</i>
+                <% end %>
+              </td>
+            </div>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

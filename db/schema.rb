@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_30_184422) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_02_183300) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -63,6 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_30_184422) do
     t.string "email"
     t.string "name"
     t.string "mobile"
+    t.string "status", default: "Opend", null: false
   end
 
   create_table "fforums", force: :cascade do |t|
@@ -214,6 +215,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_30_184422) do
     t.string "level"
     t.string "about"
     t.string "phone"
+    t.string "work_group", default: "User", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
