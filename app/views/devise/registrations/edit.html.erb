@@ -1,113 +1,129 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="w-full max-w-lg mx-auto mt-20">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="grid md:grid-cols-2 md:gap-6">
+    <div class="relative z-0 mb-6 w-full group">
+      <%= f.label :name, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= f.text_field :name, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Name" %>
+    </div>
+    <div class="relative z-0 mb-6 w-full group">
+      <%= f.label :last_name, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= f.text_field :last_name, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Last name" %>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 md:gap-6">
+    <div class="relative z-0 mb-6 w-full group">
+      <%= f.label :email, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "dosi@gmail.com" %>
+    </div>
+    <div class="relative z-0 mb-6 w-full group">
+      <%= f.label :phone, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= f.text_field :phone, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "+380638968944" %>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+    <%= f.label :avatar, class: "block mb-2 text-sm font-medium text-gray-300" %>
+    <%= f.file_field :avatar, class: "text-gray-300 text-sm" %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="mt-6 grid md:grid-cols-3">
+    <div class="field mb-6">
+      <%= f.label :work_group, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= f.select :work_group, User::WORKGROUP %>
+    </div>
+    <div class="relative z-0 mb-6 w-full group">
+      <%= f.label :level, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= f.select :level, User::LEVEL %>
+    </div>
+    <div class="relative z-0 mb-6 w-full group">
+      <%= f.label :role, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= f.select :role, User::ROLE %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :avatar %><br />
-    <%= f.file_field :avatar %>
+
+
+  <div class="field mb-6">
+    <%= f.label "About me", class: "block mb-2 text-sm font-medium text-gray-300" %>
+    <%= f.text_area :about, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light" %>
   </div>
 
-  <div class="field">
-    <%= f.label :role %><br />
-    <%= f.select :role, User::ROLE %>
-  </div>
-
-  <div class="field">
-    <%= f.label :level %><br />
-    <%= f.select :level, User::LEVEL %>
-  </div>
-
-  <div class="field">
-    <%= f.label :work_group %><br />
-    <%= f.select :work_group, User::WORKGROUP %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= f.label "About me" %><br />
-    <%= f.text_area :about %>
-  </div>
-
-  <div class="field">
-    <%= f.label :skills %><br />
-    <%= f.collection_check_boxes :skill_ids, Skill.all, :id, :name do |s| %>
-      <div class="collection-check-box">
-        <%= s.check_box %>
-        <%= s.label %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :hobbies %><br />
-    <%= f.collection_check_boxes :hobby_ids, Hobby.all, :id, :name do |s| %>
-      <div class="collection-check-box">
-        <%= s.check_box %>
-        <%= s.label %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :languages %><br />
-    <%= f.collection_check_boxes :language_ids, Language.all, :id, :name do |s| %>
-      <div class="collection-check-box">
-        <%= s.check_box %>
-        <%= s.label %>
-      </div>
-    <% end %>
+  <div class="grid md:grid-cols-3 md:gap-6">
+    <div class="relative z-0 mb-6 w-full group">
+      <%= f.label :skills, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= f.collection_check_boxes :skill_ids, Skill.all, :id, :name do |s| %>
+        <div class="collection-check-box items-center w-full py-1 text-sm transition duration-500 ease-in-out transform rounded-lg focus:shadow-outline hover:bg-gray-900 text-gray-300">
+          <%= s.check_box %>
+          <%= s.label %>
+        </div>
+      <% end %>
+    </div>
+    <div class="relative z-0 mb-6 w-full group">
+      <%= f.label :hobbies, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= f.collection_check_boxes :hobby_ids, Hobby.all, :id, :name do |s| %>
+        <div class="collection-check-box items-center w-full py-1 text-sm transition duration-500 ease-in-out transform rounded-lg focus:shadow-outline hover:bg-gray-900 text-gray-300">
+          <%= s.check_box %>
+          <%= s.label %>
+        </div>
+      <% end %>
+    </div>
+    <div class="relative z-0 mb-6 w-full group">
+      <%= f.label :languages, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= f.collection_check_boxes :language_ids, Language.all, :id, :name do |s| %>
+        <div class="collection-check-box items-center w-full py-1 text-sm transition duration-500 ease-in-out transform rounded-lg focus:shadow-outline hover:bg-gray-900 text-gray-300">
+          <%= s.check_box %>
+          <%= s.label %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+
+  <div class="grid md:grid-cols-2 md:gap-6">
+    <div class="relative z-0 mb-6 w-full group">
+      <%= f.label :password, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Leave blank if you don't change it" %>
+      <% if @minimum_password_length %>
+        <em class="text-xs text-gray-400"><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
+    <div class="relative z-0 mb-6 w-full group">
+      <%= f.label :password_confirmation, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="grid md:grid-cols-2 md:gap-6">
+    <div class="relative z-0 w-full group">
+      <%= f.label :current_password, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= f.password_field :current_password, autocomplete: "current-password", class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light" %>
+      <em class="text-xs text-gray-400">(we need your current password to confirm your changes)</em>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  <div class="field my-6 w-full flex justify-center">
+    <%= f.submit "Update", class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class="field mb-20 w-full flex justify-center">
+    <%= link_to "Back", :back, class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<!--<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%#= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>-->
 
-<%= link_to "Back", :back %>
+
+</div>
+
+
+
