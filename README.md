@@ -99,3 +99,4 @@ gem "chartkick"
 * 100% Контакти - прописані model, view, controller
 
 + за допомогою work_group (user) поділити, хто до чого має доступ, хто що може редагувати
++ додати до Users name and last_name - default.
