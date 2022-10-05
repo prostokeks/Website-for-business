@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
+  get 'careers/index'
+  get 'careers/show'
+  get 'careers/new'
+  get 'careers/edit'
 
   devise_for :users, controllers: {registrations: "users/registrations",
                                    sessions: "users/sessions"}
 
   root "static_pages#index"
 
-  get 'careers', to: 'static_pages#careers'
+  get 'careers', to: 'careers#index'
   get 'static_pages/portfolio'
   get 'team', to: 'static_pages#team'
   get 'products/outsourcing'
@@ -48,6 +52,7 @@ Rails.application.routes.draw do
     resources :users
     resources :teams
     resources :contacts
+    resources :careers
     resources :rooms do
       resources :messages
     end

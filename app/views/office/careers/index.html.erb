@@ -1,0 +1,73 @@
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
+<div class="mt-20 flex items-center space-x-2 overflow-x-auto overflow-y-hidden justify-center flex-nowrap dark:text-gray-100">
+  <div class="actions px-8 pt-4 mb-4"><%= link_to "New", new_office_career_path, class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %></div>
+</div>
+
+<% if @careers.nil?%>
+  <div class="flex justify-center mt-20 mx-auto">
+    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+      <div class="min-w-full">
+        <table class="w-full text-sm text-gray-400 text-center">
+          <thead class="text-xs uppercase bg-gray-700 text-gray-400">
+          <tr>
+            <th scope="col" class="py-3 px-6">
+              Who
+            </th>
+            <th scope="col" class="py-3 px-6">
+              Salary
+            </th>
+            <th scope="col" class="py-3 px-6">
+              Work load
+            </th>
+            <th scope="col" class="py-3 px-6">
+              Location
+            </th>
+            <th scope="col" class="py-3 px-6">
+              Status
+            </th>
+            <th scope="col" class="py-3 px-6">
+              Action
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @careers.each do |c| %>
+            <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-center text-gray-500">
+              <div class=" border-gray-700 min-w-full" >
+                <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
+                  <p><%= c.title %></p>
+                </th>
+                <td class="py-4 px-6">
+                  <%= c.salary %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <p><%= c.work_load %></p>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <p><%= c.location %></p>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <p><%= c.status %></p>
+                </td>
+                <td class="py-4 px-6">
+                  <%= link_to(office_career_path(c), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                    <i class="material-icons-outlined text-base">visibility</i>
+                  <% end %>
+                  <%= link_to(edit_office_career_path(c), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                    <i class="material-icons-outlined text-base">edit</i>
+                  <% end %>
+                  <%= link_to(office_career_path(c), data: { "turbo-method": :delete,
+                                                              turbo_confirm: "You sure?" }, class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                    <i class="material-icons-round text-base">delete_outline</i>
+                  <% end %>
+                </td>
+              </div>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<% end %>

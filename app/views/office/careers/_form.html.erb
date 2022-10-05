@@ -1,0 +1,35 @@
+<div class="w-full max-w-lg mx-auto mt-12">
+  <%= form_with model: @career do |c| %>
+    <div class="mb-6">
+      <%= c.label :title, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= c.text_field :title, required: true, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Title" %>
+    </div>
+    <div class="mb-6">
+      <%= c.label :requirement, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= c.text_area :requirement, required: true, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Content" %>
+    </div>
+    <div class="mb-6">
+      <%= c.label :benefit, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= c.text_area :benefit, required: true, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Content" %>
+    </div>
+    <div class="mb-6">
+      <%= c.label :salary, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= c.text_field :salary, required: true, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Title" %>
+    </div>
+    <div class="grid md:grid-cols-3 md:gap-6">
+      <div class="relative z-0 mb-6 w-full group">
+        <%= c.label "Work load", class: "block mb-2 text-sm font-medium text-gray-300" %>
+        <%= c.select :work_load, Career::WORK %>
+      </div>
+      <div class="relative z-0 mb-6 w-full group">
+        <%= c.label :location, class: "block mb-2 text-sm font-medium text-gray-300" %>
+        <%= c.select :location, Career::LOCATION %>
+      </div>
+      <div class="relative z-0 mb-6 w-full group">
+        <%= c.label :status, class: "block mb-2 text-sm font-medium text-gray-300" %>
+        <%= c.select :status, Career::STATUS %>
+      </div>
+    </div>
+    <%= c.submit "Submit", class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %>
+  <% end %>
+</div>
