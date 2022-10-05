@@ -32,5 +32,7 @@ class User < ApplicationRecord
   WORKGROUP=["User", "Team_Lead", "HR", "CEO", "Employee", "Accountant", "Manager"]
 
   validates :role, inclusion: {in: User::ROLE}, on: :update
+  validates :about, length: {maximum: 3000}
+
 
 end
