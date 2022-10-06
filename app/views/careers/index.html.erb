@@ -2,24 +2,29 @@
   <div class="container flex flex-col justify-center px-4 mx-auto">
     <h1 class="text-3xl font-semibold sm:text-4xl text-center mb-20">Join the team</h1>
     <div class="space-y-4">
-      <div class="flex justify-center">
-        <details class="w-1/2 border rounded-lg">
-          <summary class="px-4 py-6 focus:outline-none focus-visible:ring-violet-400">Lorem at arcu rutrum viverra metus sapien venenatis lobortis odio?</summary>
-          <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">Tincidunt ut hac condimentum rhoncus phasellus nostra. Magna porttitor egestas tincidunt neque vehicula potenti. </p>
-        </details>
-      </div>
-      <div class="flex justify-center">
-        <details class="w-1/2 border rounded-lg">
-          <summary class="px-4 py-6 focus:outline-none focus-visible:ring-violet-400">Lorem at arcu rutrum viverra metus sapien venenatis lobortis odio?</summary>
-          <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">Tincidunt ut hac condimentum rhoncus phasellus nostra. Magna porttitor egestas tincidunt neque vehicula potenti. </p>
-        </details>
-      </div>
-      <div class="flex justify-center">
-        <details class="w-1/2 border rounded-lg">
-          <summary class="px-4 py-6 focus:outline-none focus-visible:ring-violet-400">Lorem at arcu rutrum viverra metus sapien venenatis lobortis odio?</summary>
-          <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">Tincidunt ut hac condimentum rhoncus phasellus nostra. Magna porttitor egestas tincidunt neque vehicula potenti. </p>
-        </details>
-      </div>
+      <% @careers.each do |c| %>
+        <div class="flex justify-center">
+            <details class="w-1/2 border rounded-lg">
+              <summary class="px-4 py-6 focus:outline-none focus-visible:ring-violet-400 uppercase"><%= c.title %></summary>
+              <h2 class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">REQUIREMENTS</h2>
+              <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400"><%= c.requirement %></p>
+              <h2 class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">BENEFITS</h2>
+              <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400"><%= c.benefit %></p>
+              <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="relative z-0 w-full group">
+                  <h2 class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">SALARY: <%= c.salary %></h2>
+                  <h2 class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">WORK LOAD: <%= c.work_load %></h2>
+                  <h2 class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">LOCATION: <%= c.location %></h2>
+                </div>
+                <div class="relative z-0 w-full group -mt-4">
+                  <div class="field w-full flex justify-center my-6">
+                    <%= link_to "Apply now", new_contact_path, class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %>
+                  </div>
+                </div>
+              </div>
+            </details>
+        </div>
+      <% end %>
     </div>
   </div>
 </section>

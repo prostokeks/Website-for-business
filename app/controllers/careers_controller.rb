@@ -3,7 +3,7 @@ class CareersController < ApplicationController
   before_action :set_career, only: %i[update destroy]
 
   def index
-    @careers = Career.all
+    @careers = Career.where(status: "active")
   end
 
   def create

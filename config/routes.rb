@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'careers/index'
-  get 'careers/show'
-  get 'careers/new'
-  get 'careers/edit'
 
   devise_for :users, controllers: {registrations: "users/registrations",
                                    sessions: "users/sessions"}
@@ -31,6 +27,7 @@ Rails.application.routes.draw do
     resources :comments
     collection do
       post :index
+      post :create_forum, to: "forums#create", as: :create
     end
   end
   resources :flibraries
@@ -41,6 +38,7 @@ Rails.application.routes.draw do
     end
   end
   resources :contacts
+  resources :careers
   resources :rooms
   resources :products, except: :index
   resources :rooms do

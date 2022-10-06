@@ -9,7 +9,7 @@ class Forum < ApplicationRecord
 
 
   STATUS=[:passive, :active]
-  validates :status, inclusion: {in: %w(passive active)}
+  #validates :status, inclusion: {in: %w(passive active)}
 
   validates :title, presence: true, length: {maximum: 100}
   validates :body, presence: true, length: {in: 100..3000}
