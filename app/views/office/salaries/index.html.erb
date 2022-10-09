@@ -39,104 +39,204 @@
         </thead>
         <tbody>
         <% @users.each do |u| %>
-        <%# if кнопка 2021 и 2022%>
-          <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
-            <div class=" border-gray-700 min-w-full" >
-              <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
-                <%= link_to(office_user_salary_path(u)) do %>
-                  <%= u.name %> <%= u.last_name %>
-                <% end %>
-              </th>
-              <td class="py-4 px-6 text-white">
-                <% u.salaries.each do |s| %>
-                  <% if s.month_ids == [1] %>
-                    <%= s.salary %>
+          <% if current_page? office_year_salary_path(1)%>
+            <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
+              <div class=" border-gray-700 min-w-full" >
+                <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
+                  <%= link_to(office_user_salary_path(u)) do %>
+                    <%= u.name %> <%= u.last_name %>
                   <% end %>
-                <% end %>
-              </td>
-              <td class="py-4 px-6 text-white">
-                <% u.salaries.each do |s| %>
-                  <% if s.month_ids == [2] %>
-                    <%= s.salary %>
+                </th>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [1] && s.year_ids == [1] %>
+                      <%= s.salary %>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </td>
-              <td class="py-4 px-6 text-white">
-                <% u.salaries.each do |s| %>
-                  <% if s.month_ids == [3] %>
-                    <%= s.salary %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [2] && s.year_ids == [1] %>
+                      <%= s.salary %>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </td>
-              <td class="py-4 px-6 text-white">
-                <% u.salaries.each do |s| %>
-                  <% if s.month_ids == [4] %>
-                    <%= s.salary %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [3] && s.year_ids == [1] %>
+                      <%= s.salary %>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </td>
-              <td class="py-4 px-6 text-white">
-                <% u.salaries.each do |s| %>
-                  <% if s.month_ids == [5] %>
-                    <%= s.salary %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [4] && s.year_ids == [1] %>
+                      <%= s.salary %>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </td>
-              <td class="py-4 px-6 text-white">
-                <% u.salaries.each do |s| %>
-                  <% if s.month_ids == [6] %>
-                    <%= s.salary %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [5] && s.year_ids == [1] %>
+                      <%= s.salary %>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </td>
-              <td class="py-4 px-6 text-white">
-                <% u.salaries.each do |s| %>
-                  <% if s.month_ids == [7] %>
-                    <%= s.salary %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [6] && s.year_ids == [1] %>
+                      <%= s.salary %>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </td>
-              <td class="py-4 px-6 text-white">
-                <% u.salaries.each do |s| %>
-                  <% if s.month_ids == [8] %>
-                    <%= s.salary %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [7] && s.year_ids == [1] %>
+                      <%= s.salary %>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </td>
-              <td class="py-4 px-6 text-white">
-                <% u.salaries.each do |s| %>
-                  <% if s.month_ids == [9] %>
-                    <%= s.salary %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [8] && s.year_ids == [1] %>
+                      <%= s.salary %>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </td>
-              <td class="py-4 px-6 text-white">
-                <% u.salaries.each do |s| %>
-                  <% if s.month_ids == [10] %>
-                    <%= s.salary %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [9] && s.year_ids == [1] %>
+                      <%= s.salary %>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </td>
-              <td class="py-4 px-6 text-white">
-                <% u.salaries.each do |s| %>
-                  <% if s.month_ids == [11] %>
-                    <%= s.salary %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [10] && s.year_ids == [1] %>
+                      <%= s.salary %>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </td>
-              <td class="py-4 px-6 text-white">
-                <% u.salaries.each do |s| %>
-                  <% if s.month_ids == [12] %>
-                    <%= s.salary %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [11] && s.year_ids == [1] %>
+                      <%= s.salary %>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </td>
-              <td class="py-4 px-6 text-white font-medium whitespace-nowrap">
-                <%= u.salaries.map(&:salary).sum %>
-              </td>
-            </div>
-          </tr>
-        <%# end %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [12] && s.year_ids == [1] %>
+                      <%= s.salary %>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td class="py-4 px-6 text-white font-medium whitespace-nowrap">
+                  <%# if  %>
+                    <%#= u.salaries.map(&:salary).sum %>
+                    <%= u.select{|s| s.year_ids == [1]}.map(&:salary).sum %>
+                  <%# end %>
+                </td>
+              </div>
+            </tr>
+          <% else%>
+            <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
+              <div class=" border-gray-700 min-w-full" >
+                <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
+                  <%= link_to(office_user_salary_path(u)) do %>
+                    <%= u.name %> <%= u.last_name %>
+                  <% end %>
+                </th>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [1] && s.year_ids == [2] %>
+                      <%= s.salary %>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [2] && s.year_ids == [2] %>
+                      <%= s.salary %>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [3] && s.year_ids == [2] %>
+                      <%= s.salary %>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [4] && s.year_ids == [2] %>
+                      <%= s.salary %>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [5] && s.year_ids == [2] %>
+                      <%= s.salary %>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [6] && s.year_ids == [2] %>
+                      <%= s.salary %>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [7] && s.year_ids == [2] %>
+                      <%= s.salary %>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [8] && s.year_ids == [2] %>
+                      <%= s.salary %>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [9] && s.year_ids == [2] %>
+                      <%= s.salary %>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [10] && s.year_ids == [2] %>
+                      <%= s.salary %>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [11] && s.year_ids == [2] %>
+                      <%= s.salary %>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td class="py-4 px-6 text-white">
+                  <% u.salaries.each do |s| %>
+                    <% if s.month_ids == [12] && s.year_ids == [2] %>
+                      <%= s.salary %>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td class="py-4 px-6 text-white font-medium whitespace-nowrap">
+                  <%= u.salaries.map(&:salary).sum %>
+                </td>
+              </div>
+            </tr>
+          <% end %>
         <% end %>
         </tbody>
       </table>
