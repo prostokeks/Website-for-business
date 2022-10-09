@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_05_111634) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_09_074856) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -152,6 +152,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_111634) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "months", force: :cascade do |t|
+    t.string "month"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "months_salaries", id: false, force: :cascade do |t|
+    t.integer "salary_id", null: false
+    t.integer "month_id", null: false
+  end
+
   create_table "participants", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "room_id", null: false
@@ -195,6 +206,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_111634) do
     t.integer "user_id", null: false
   end
 
+  create_table "salaries_years", id: false, force: :cascade do |t|
+    t.integer "salary_id", null: false
+    t.integer "year_id", null: false
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -230,6 +246,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_111634) do
     t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "years", force: :cascade do |t|
+    t.string "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

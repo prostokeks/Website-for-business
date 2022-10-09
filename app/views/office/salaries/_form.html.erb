@@ -1,11 +1,31 @@
 <%= form_with model: @salary do |s| %>
   <div class="mb-6">
-    <%= s.label :year %>
-    <%= s.select :year, Salary::YEAR %>
+    <%= s.label :year, class: "block mb-2 text-sm font-medium text-gray-300" %>
+    <%#= s.select :year_ids, Year.all.pluck(:year) %>
+    <%= s.collection_check_boxes :year_ids, Year.all, :id, :year do |u| %>
+      <div class="collection-check-box items-center w-full px-4 py-1 text-sm transition duration-500 ease-in-out transform rounded-lg focus:shadow-outline hover:bg-gray-900 text-gray-300">
+        <%= u.check_box %>
+        <%= u.label %>
+      </div>
+    <% end %>
   </div>
   <div class="mb-6">
-    <%= s.label :month %>
-    <%= s.select :month, Salary::MONTH %>
+    <%= s.label :month, class: "block mb-2 text-sm font-medium text-gray-300" %>
+    <%#= s.select :month_ids, Month.all.pluck(:month) %>
+    <%= s.collection_check_boxes :month_ids, Month.all, :id, :month do |u| %>
+      <div class="collection-check-box items-center w-full px-4 py-1 text-sm transition duration-500 ease-in-out transform rounded-lg focus:shadow-outline hover:bg-gray-900 text-gray-300">
+        <%= u.check_box %>
+        <%= u.label %>
+      </div>
+    <% end %>
+  </div>
+  <div class="mb-6">
+    <%#= s.label :year %>
+    <%#= s.select :year, Salary::YEAR %>
+  </div>
+  <div class="mb-6">
+    <%#= s.label :month %>
+    <%#= s.select :month, Salary::MONTH %>
   </div>
   <div class="mb-6">
     <%= s.label :salary %>

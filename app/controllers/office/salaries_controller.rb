@@ -4,11 +4,16 @@ class Office::SalariesController < OfficeController
 
   def index
     @salaries = Salary.all
-    @users = User.all
+    @users = User.where.not(work_group: "User")
+    @months = Month.all
+    @years = Year.all
   end
 
   def new
     @salary = Salary.new
+  end
+
+  def month
   end
 
   def show

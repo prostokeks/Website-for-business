@@ -39,7 +39,7 @@ class SalariesController < ApplicationController
   private
 
   def salary_params
-    params.require(:salary).permit(:year, :month, :salary, user_ids:[])
+    params.require(:salary).permit(:year, :month, :salary, user_ids:[], year_ids:[], month_ids:[])
   end
 
   #def set_salary

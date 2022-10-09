@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'office/team', to: 'office/static_back_pages#team'
   get 'office/users/profile/:id', to: 'office/users#profile', as: 'office/user/profile'
   get 'office/salaries/users/:id', to: 'office/users#salary', as: 'office/user/salary'
+  get 'office/salaries/months/:id', to: 'office/salaries#month', as: 'office/month/salary'
+  get 'office/salaries/years/:id', to: 'office/salaries#index', as: 'office/year/salary'
   get 'office/docs', to: 'office/static_back_pages#docs'
   get 'office/dashboard', to: 'office/static_back_pages#index'
 
