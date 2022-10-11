@@ -1,22 +1,9 @@
 class Office::SalariesController < OfficeController
 
-  before_action :set_salary, only: %i[show edit update destroy]
-
-  def index
-    @salaries = Salary.all
-    @users = User.where.not(work_group: "User")
-    @months = Month.all
-    @years = Year.all
-  end
+  before_action :set_salary, only: %i[edit destroy]
 
   def new
     @salary = Salary.new
-  end
-
-  def month
-  end
-
-  def show
   end
 
   def edit
@@ -30,6 +17,5 @@ class Office::SalariesController < OfficeController
   def set_salary
     @salary = Salary.find(params[:id])
   end
-
 
 end

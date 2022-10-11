@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_09_074856) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_10_174948) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -153,13 +153,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_09_074856) do
   end
 
   create_table "months", force: :cascade do |t|
-    t.string "month"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "months_salaries", id: false, force: :cascade do |t|
     t.integer "salary_id", null: false
+    t.integer "month_id", null: false
+  end
+
+  create_table "months_years", id: false, force: :cascade do |t|
+    t.integer "year_id", null: false
     t.integer "month_id", null: false
   end
 
@@ -194,9 +199,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_09_074856) do
   end
 
   create_table "salaries", force: :cascade do |t|
-    t.string "year"
-    t.string "month"
-    t.integer "salary"
+    t.string "salary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -249,7 +252,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_09_074856) do
   end
 
   create_table "years", force: :cascade do |t|
-    t.string "year"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
