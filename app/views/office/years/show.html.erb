@@ -45,92 +45,94 @@
                 <%= u.name %> <%= u.last_name %>
               <% end %>
             </th>
-            <td class="py-4 px-6 text-white">
+            <td class="py-4 text-white">
               <% u.salaries.each do |s| %>
                 <% if s.month_ids == [1] && s.year_ids == [@year.id] %>
                   <%= s.salary %>
                 <% end %>
               <% end %>
             </td>
-            <td class="py-4 px-6 text-white">
+            <td class="py-4 text-white">
               <% u.salaries.each do |s| %>
                 <% if s.month_ids == [2] && s.year_ids == [@year.id] %>
                   <%= s.salary %>
                 <% end %>
               <% end %>
             </td>
-            <td class="py-4 px-6 text-white">
+            <td class="py-4 text-white">
               <% u.salaries.each do |s| %>
                 <% if s.month_ids == [3] && s.year_ids == [@year.id] %>
                   <%= s.salary %>
                 <% end %>
               <% end %>
             </td>
-            <td class="py-4 px-6 text-white">
+            <td class="py-4 text-white">
               <% u.salaries.each do |s| %>
                 <% if s.month_ids == [4] && s.year_ids == [@year.id] %>
                   <%= s.salary %>
                 <% end %>
               <% end %>
             </td>
-            <td class="py-4 px-6 text-white">
+            <td class="py-4 text-white">
               <% u.salaries.each do |s| %>
                 <% if s.month_ids == [5] && s.year_ids == [@year.id] %>
                   <%= s.salary %>
                 <% end %>
               <% end %>
             </td>
-            <td class="py-4 px-6 text-white">
+            <td class="py-4 text-white">
               <% u.salaries.each do |s| %>
                 <% if s.month_ids == [6] && s.year_ids == [@year.id] %>
                   <%= s.salary %>
                 <% end %>
               <% end %>
             </td>
-            <td class="py-4 px-6 text-white">
+            <td class="py-4 text-white">
               <% u.salaries.each do |s| %>
                 <% if s.month_ids == [7] && s.year_ids == [@year.id] %>
                   <%= s.salary %>
                 <% end %>
               <% end %>
             </td>
-            <td class="py-4 px-6 text-white">
+            <td class="py-4 text-white">
               <% u.salaries.each do |s| %>
                 <% if s.month_ids == [8] && s.year_ids == [@year.id] %>
                   <%= s.salary %>
                 <% end %>
               <% end %>
             </td>
-            <td class="py-4 px-6 text-white">
+            <td class="py-4 text-white">
               <% u.salaries.each do |s| %>
                 <% if s.month_ids == [9] && s.year_ids == [@year.id] %>
                   <%= s.salary %>
                 <% end %>
               <% end %>
             </td>
-            <td class="py-4 px-6 text-white">
+            <td class="py-4 text-white">
               <% u.salaries.each do |s| %>
                 <% if s.month_ids == [10] && s.year_ids == [@year.id] %>
                   <%= s.salary %>
                 <% end %>
               <% end %>
             </td>
-            <td class="py-4 px-6 text-white">
+            <td class="py-4 text-white">
               <% u.salaries.each do |s| %>
                 <% if s.month_ids == [11] && s.year_ids == [@year.id] %>
                   <%= s.salary %>
                 <% end %>
               <% end %>
             </td>
-            <td class="py-4 px-6 text-white">
+            <td class="py-4 text-white">
               <% u.salaries.each do |s| %>
                 <% if s.month_ids == [12] && s.year_ids == [@year.id] %>
                   <%= s.salary %>
                 <% end %>
               <% end %>
             </td>
-            <td class="py-4 px-6 text-white font-medium whitespace-nowrap">
-              <%= u.salaries.select{|salary| salary.year_ids == [@year.id]}.sum %>
+            <td class="py-4 text-white font-medium whitespace-nowrap">
+              <%#= u.salaries.map(&:salary).sum %>
+              <%#= u.products.where(status: "active").size %>
+
             </td>
           </div>
         </tr>

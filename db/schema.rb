@@ -199,7 +199,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_10_174948) do
   end
 
   create_table "salaries", force: :cascade do |t|
-    t.string "salary"
+    t.integer "salary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
