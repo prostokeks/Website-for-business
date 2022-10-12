@@ -17,7 +17,7 @@
       <thead class="text-xs uppercase bg-gray-700 text-gray-400">
       <tr>
         <th></th>
-        <th colspan="12">Month</th>
+        <th colspan="12" class="py-3 px-2">Month</th>
         <th></th>
       </tr>
       <tr>
@@ -130,13 +130,22 @@
               <% end %>
             </td>
             <td class="py-4 text-white font-medium whitespace-nowrap">
+              Sum
               <%#= u.salaries.map(&:salary).sum %>
               <%#= u.products.where(status: "active").size %>
-
+              <%# self.outfits.where(:scraped => true).where(:status => 'Approved').map(&:id) %>
             </td>
           </div>
         </tr>
       <% end %>
+      <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
+        <th colspan="13" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
+          Salaries
+        </th>
+        <td class="py-4 text-white font-medium">
+          Sum
+        </td>
+      </tr>
       </tbody>
     </table>
   </div>

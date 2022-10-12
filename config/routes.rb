@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   get 'office/team', to: 'office/static_back_pages#team'
   get 'office/users/profile/:id', to: 'office/users#profile', as: 'office/user/profile'
   get 'office/years/:year_id/users/:id', to: 'office/users#salary', as: 'office/user/salary'
+
+  get 'office/invoices/years/:year_id/months/:id', to: 'office/invoices#month', as: 'office/invoices/month'
+  get 'office/invoices/years/:id', to: 'office/invoices#index', as: 'office/invoices/index'
+
   get 'office/docs', to: 'office/static_back_pages#docs'
   get 'office/dashboard', to: 'office/static_back_pages#index'
 
@@ -60,6 +64,9 @@ Rails.application.routes.draw do
       resources :months, only: :show
     end
     resources :salaries, except: [:index, :show]
+
+    resources :invoices
+
     resources :libraries do
     collection do
       post :index
