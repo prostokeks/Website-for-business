@@ -11,7 +11,7 @@
         </tr>
         <tr>
           <th scope="col" class="py-3 px-2">
-            Projects
+            Employees
           </th>
           <th scope="col" class="py-3 px-6">
             Role
@@ -28,33 +28,47 @@
         </tr>
         </thead>
         <tbody>
-        <% @products.each do |p| %>
+        <% @users.each do |u| %>
           <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
             <div class=" border-gray-700 min-w-full" >
               <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
-                <%= link_to(office_invoices_project_path(@year, @month, p)) do %>
-                  <%= p.title %>
-                <% end %>
+                <%= u.name %> <%= u.last_name %>
               </th>
               <td class="py-4 text-white">
-                <%#= u.role %>
+                <%= u.role %>
               </td>
               <td class="py-4 text-white">
-                <%#= u.level %>
+                <%= u.level %>
               </td>
               <td class="py-4 text-white">
-                <%#= u.products.where(status: "active").size %>
+                <%= u.products.where(status: "active").size %>
               </td>
               <td class="py-4 text-white">
-                <%# u.salaries.each do |s| %>
-                  <%# if s.month_ids == [@month.id] && s.year_ids == [@year.id] %>
-                    <%#= s.salary %>
-                  <%# end %>
-                <%# end %>
+                <% u.salaries.each do |s| %>
+                  <% if s.month_ids == [@month.id] && s.year_ids == [@year.id] %>
+                    <%= s.salary %>
+                  <% end %>
+                <% end %>
               </td>
             </div>
           </tr>
         <% end %>
+        <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
+          <th colspan="4" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
+            Salaries
+          </th>
+          <td class="py-4 text-white font-medium">
+            Sum
+          </td>
+        </tr>
+        <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
+          <th colspan="4" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
+            Employees
+          </th>
+          <td class="py-4 text-white font-medium">
+            Sum
+          </td>
+        </tr>
         </tbody>
       </table>
     </div>

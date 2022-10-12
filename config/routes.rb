@@ -12,10 +12,15 @@ Rails.application.routes.draw do
   get 'products/internal'
   get 'office/team', to: 'office/static_back_pages#team'
   get 'office/users/profile/:id', to: 'office/users#profile', as: 'office/user/profile'
+
   get 'office/years/:year_id/users/:id', to: 'office/users#salary', as: 'office/user/salary'
 
+  get 'office/salaries/years/:id', to: 'office/salaries#year', as: 'office/salaries/year'
+  get 'office/salaries/years/:year_id/months/:id', to: 'office/salaries#month', as: 'office/salaries/month'
+
+  get 'office/invoices/years/:id', to: 'office/invoices#year', as: 'office/invoices/year'
   get 'office/invoices/years/:year_id/months/:id', to: 'office/invoices#month', as: 'office/invoices/month'
-  get 'office/invoices/years/:id', to: 'office/invoices#index', as: 'office/invoices/index'
+  get 'office/invoices/years/:year_id/months/:month_id/projects/:id', to: 'office/invoices#project', as: 'office/invoices/project'
 
   get 'office/docs', to: 'office/static_back_pages#docs'
   get 'office/dashboard', to: 'office/static_back_pages#index'
@@ -48,7 +53,7 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :messages
   end
-  resources :salaries, except: [:index, :show, :edit, :new]
+  resources :salaries, only: [:create, :update, :destroy]
 
   namespace :office do
     resources :users
@@ -60,13 +65,8 @@ Rails.application.routes.draw do
     end
     resources :forums
     resources :products
-    resources :years, only: :show do
-      resources :months, only: :show
-    end
-    resources :salaries, except: [:index, :show]
-
-    resources :invoices
-
+    resources :salaries, only: [:new, :edit, :destroy]
+    resources :invoices, only: [:new, :edit, :destroy]
     resources :libraries do
     collection do
       post :index

@@ -130,11 +130,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_131446) do
     t.integer "month_id", null: false
   end
 
-  create_table "invoices_users", id: false, force: :cascade do |t|
-    t.integer "invoice_id", null: false
-    t.integer "user_id", null: false
-  end
-
   create_table "invoices_years", id: false, force: :cascade do |t|
     t.integer "invoice_id", null: false
     t.integer "year_id", null: false
