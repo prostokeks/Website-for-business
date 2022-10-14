@@ -137,23 +137,126 @@
                     <% end %>
                   <% end %>
                 <%= a %>
-                <%#= u.salaries.map(&:salary.where).sum %>
-                <%#= u.products.where(status: "active").size %>
-                <%# self.outfits.where(:scraped => true).where(:status => 'Approved').map(&:id) %>
               </td>
             </div>
           </tr>
         <% end %>
         <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
-          <th colspan="13" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
-            Salaries
+          <th class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
+            Total
           </th>
           <td class="py-4 text-white font-medium">
             <% a = 0 %>
             <% @salaries.each do |s| %>
+              <% if s.month_ids == [1] && s.year_ids == [@year.id] %>
+                <% a += s.salary * s.users.size %>
+              <% end %>
+            <% end %>
+            <%= a %>
+          </td>
+          <td class="py-4 text-white font-medium">
+            <% a = 0 %>
+            <% @salaries.each do |s| %>
+              <% if s.month_ids == [2] && s.year_ids == [@year.id] %>
+                <% a += s.salary * s.users.size %>
+              <% end %>
+            <% end %>
+            <%= a %>
+          </td>
+          <td class="py-4 text-white font-medium">
+            <% a = 0 %>
+            <% @salaries.each do |s| %>
+              <% if s.month_ids == [3] && s.year_ids == [@year.id] %>
+                <% a += s.salary * s.users.size %>
+              <% end %>
+            <% end %>
+            <%= a %>
+          </td>
+          <td class="py-4 text-white font-medium">
+            <% a = 0 %>
+            <% @salaries.each do |s| %>
+              <% if s.month_ids == [4] && s.year_ids == [@year.id] %>
+                <% a += s.salary * s.users.size %>
+              <% end %>
+            <% end %>
+            <%= a %>
+          </td>
+          <td class="py-4 text-white font-medium">
+            <% a = 0 %>
+            <% @salaries.each do |s| %>
+              <% if s.month_ids == [5] && s.year_ids == [@year.id] %>
+                <% a += s.salary * s.users.size %>
+              <% end %>
+            <% end %>
+            <%= a %>
+          </td>
+          <td class="py-4 text-white font-medium">
+            <% a = 0 %>
+            <% @salaries.each do |s| %>
+              <% if s.month_ids == [6] && s.year_ids == [@year.id] %>
+                <% a += s.salary * s.users.size %>
+              <% end %>
+            <% end %>
+            <%= a %>
+          </td>
+          <td class="py-4 text-white font-medium">
+            <% a = 0 %>
+            <% @salaries.each do |s| %>
+              <% if s.month_ids == [7] && s.year_ids == [@year.id] %>
+                <% a += s.salary * s.users.size %>
+              <% end %>
+            <% end %>
+            <%= a %>
+          </td>
+          <td class="py-4 text-white font-medium">
+            <% a = 0 %>
+            <% @salaries.each do |s| %>
+              <% if s.month_ids == [8] && s.year_ids == [@year.id] %>
+                <% a += s.salary * s.users.size %>
+              <% end %>
+            <% end %>
+            <%= a %>
+          </td>
+          <td class="py-4 text-white font-medium">
+            <% a = 0 %>
+            <% @salaries.each do |s| %>
+              <% if s.month_ids == [9] && s.year_ids == [@year.id] %>
+                <% a += s.salary * s.users.size %>
+              <% end %>
+            <% end %>
+            <%= a %>
+          </td>
+          <td class="py-4 text-white font-medium">
+            <% a = 0 %>
+            <% @salaries.each do |s| %>
+              <% if s.month_ids == [10] && s.year_ids == [@year.id] %>
+                <% a += s.salary * s.users.size %>
+              <% end %>
+            <% end %>
+            <%= a %>
+          </td>
+          <td class="py-4 text-white font-medium">
+            <% a = 0 %>
+            <% @salaries.each do |s| %>
+              <% if s.month_ids == [11] && s.year_ids == [@year.id] %>
+                <% a += s.salary * s.users.size %>
+              <% end %>
+            <% end %>
+            <%= a %>
+          </td>
+          <td class="py-4 text-white font-medium">
+            <% a = 0 %>
+            <% @salaries.each do |s| %>
+              <% if s.month_ids == [12] && s.year_ids == [@year.id] %>
+                <% a += s.salary * s.users.size %>
+              <% end %>
+            <% end %>
+            <%= a %>
+          </td>
+          <td class="py-4 text-white font-medium">
+            <% a = 0 %>
+            <% @salaries.each do |s| %>
               <% if s.year_ids == [@year.id] %>
-                <% s.salary %>
-                <% s.users.size %>
                 <% a += s.salary * s.users.size %>
               <% end %>
             <% end %>
