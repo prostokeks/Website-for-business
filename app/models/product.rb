@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   has_one_attached :avatar
 
   has_and_belongs_to_many :users
+  has_and_belongs_to_many :invoices
 
   STATUS=[:active, :passive]
   TYPE=[:internal, :outsourcing]

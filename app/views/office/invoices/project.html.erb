@@ -1,6 +1,9 @@
 <div class="mt-20 flex items-center space-x-2 overflow-x-auto overflow-y-hidden justify-center flex-nowrap dark:text-gray-100">
   <div class="actions px-8 pt-4 mb-4"><%= link_to "Back", :back, class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %></div>
 </div>
+<div class="mt-20 flex items-center space-x-2 overflow-x-auto overflow-y-hidden justify-center flex-nowrap dark:text-gray-100">
+  <div class="actions px-8 pt-4 mb-4"><%= link_to "Invoice", new_office_invoice_path, class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %></div>
+</div>
 <div class="flex justify-center mt-2 mx-auto my-20">
   <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
     <div class="min-w-full">
@@ -45,19 +48,36 @@
               <td class="py-4 text-white">
                 <%= u.level %>
               </td>
-              <td class="py-4 text-white">
-                <%#= u.products.where(status: "active").size %>
-              </td>
-              <td class="py-4 text-white">
-                <%# u.salaries.each do |s| %>
-                <%# if s.month_ids == [@month.id] && s.year_ids == [@year.id] %>
-                <%#= s.salary %>
-                <%# end %>
-                <%# end %>
-              </td>
+              <% u.invoices.each do |i| %>
+                <% if i.year_ids == [@year.id] && i.month_ids == [@month.id] && i.product_ids == [@product.id] %>
+                  <td class="py-4 text-white">
+                    <%= i.time %>
+                  </td>
+                  <td class="py-4 text-white">
+                    <%= i.rate %>
+                  </td>
+                  <td class="py-4 text-white">
+                    <%= i.rate * i.time %>
+                  </td>
+                <% end %>
+              <% end %>
             </div>
           </tr>
         <% end %>
+        <tr>
+          <th colspan="5" class="text-sm py-4 px-6 font-bold whitespace-nowrap text-white text-left">
+            Total
+          </th>
+          <td class="py-4 text-white font-bold text-sm">
+            <% a = 0 %>
+            <% @invoices.each do |i| %>
+              <% if i.year_ids == [@year.id] && i.month_ids == [@month.id] && i.product_ids == [@product.id] %>
+                <% a += i.rate * i.time %>
+              <% end %>
+            <% end %>
+            <%= a %>
+          </td>
+        </tr>
         </tbody>
       </table>
     </div>

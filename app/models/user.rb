@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :hobbies
   has_and_belongs_to_many :languages
   has_and_belongs_to_many :salaries
+  has_and_belongs_to_many :invoices
 
   def name_with_initial
     "(#{role}) #{name} #{last_name}"

@@ -7,7 +7,7 @@
       <table class="w-full text-xs text-gray-500 dark:text-gray-400 text-center">
         <thead class="text-xs uppercase bg-gray-700 text-gray-400">
         <tr>
-          <th colspan="5" class="py-3 px-2"><%= @month.name %></th>
+          <th colspan="4" class="py-3 px-2"><%= @year.name %> <%= @month.name %></th>
         </tr>
         <tr>
           <th scope="col" class="py-3 px-2">
@@ -17,13 +17,10 @@
             Employees
           </th>
           <th scope="col" class="py-3 px-6">
-            Level
+            Employees
           </th>
           <th scope="col" class="py-3 px-6">
-            Projects
-          </th>
-          <th scope="col" class="py-3 px-6">
-            Salary
+            Total
           </th>
         </tr>
         </thead>
@@ -43,18 +40,31 @@
                 <%#= u.level %>
               </td>
               <td class="py-4 text-white">
-                <%#= u.products.where(status: "active").size %>
-              </td>
-              <td class="py-4 text-white">
-                <%# u.salaries.each do |s| %>
-                  <%# if s.month_ids == [@month.id] && s.year_ids == [@year.id] %>
-                    <%#= s.salary %>
-                  <%# end %>
-                <%# end %>
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] && i.month_ids == [@month.id] %>
+                    <% a += i.rate * i.time %>
+                  <% end %>
+                <% end %>
+                <%= a %>
               </td>
             </div>
           </tr>
         <% end %>
+        <tr>
+          <th colspan="3" class="text-sm py-4 px-6 font-bold whitespace-nowrap text-white text-left">
+            Total
+          </th>
+          <td class="py-4 text-white font-bold text-sm">
+            <% a = 0 %>
+            <% @invoices.each do |i| %>
+              <% if i.year_ids == [@year.id] && i.month_ids == [@month.id] %>
+                <% a += i.rate * i.time %>
+              <% end %>
+            <% end %>
+            <%= a %>
+          </td>
+        </tr>
         </tbody>
       </table>
     </div>

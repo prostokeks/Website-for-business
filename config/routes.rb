@@ -54,6 +54,7 @@ Rails.application.routes.draw do
     resources :messages
   end
   resources :salaries, only: [:create, :update, :destroy]
+  resources :invoices, only: [:create, :update, :destroy]
 
   namespace :office do
     resources :users
