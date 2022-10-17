@@ -1,37 +1,44 @@
-<%= form_with model: @salary do |s| %>
-  <div class="mb-6">
-    <%= s.label :year, class: "block mb-2 text-sm font-medium text-gray-300" %>
-    <%#= s.select :year_ids, Year.all.pluck(:year) %>
-    <%= s.collection_check_boxes :year_ids, Year.all, :id, :name do |u| %>
-      <div class="collection-check-box items-center w-full px-4 py-1 text-sm transition duration-500 ease-in-out transform rounded-lg focus:shadow-outline hover:bg-gray-900 text-gray-300">
-        <%= u.check_box %>
-        <%= u.label %>
-      </div>
-    <% end %>
-  </div>
-  <div class="mb-6">
-    <%= s.label :month, class: "block mb-2 text-sm font-medium text-gray-300" %>
-    <%= s.collection_check_boxes :month_ids, Month.all, :id, :name do |u| %>
-      <div class="collection-check-box items-center w-full px-4 py-1 text-sm transition duration-500 ease-in-out transform rounded-lg focus:shadow-outline hover:bg-gray-900 text-gray-300">
-        <%= u.check_box %>
-        <%= u.label %>
-      </div>
-    <% end %>
-  </div>
+<div class="w-full max-w-lg mx-auto mt-12">
+  <%= form_with model: @salary do |s| %>
 
-  <div class="mb-6">
-    <%= s.label :salary %>
-    <%= s.text_field :salary %>
-  </div>
-
-  <div class="mb-6">
-    <%= s.label :team, class: "block mb-2 text-sm font-medium text-gray-300" %>
-    <%= s.collection_check_boxes :user_ids, User.all, :id, :name_with_initial do |u| %>
-      <div class="collection-check-box items-center w-full px-4 py-1 text-sm transition duration-500 ease-in-out transform rounded-lg focus:shadow-outline hover:bg-gray-900 text-gray-300">
-        <%= u.check_box %>
-        <%= u.label %>
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 mb-6 w-full group">
+        <%= s.label :year, class: "block mb-2 text-sm font-medium text-gray-300" %>
+        <%#= s.select :year_ids, Year.all.pluck(:year) %>
+        <%= s.collection_check_boxes :year_ids, Year.all, :id, :name do |u| %>
+          <div class="collection-check-box items-center w-full px-4 py-1 text-sm transition duration-500 ease-in-out transform rounded-lg focus:shadow-outline hover:bg-gray-900 text-gray-300">
+            <%= u.check_box %>
+            <%= u.label %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
-  <%= s.submit "Submit", class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %>
-<% end %>
+      <div class="relative z-0 mb-6 w-full group">
+        <%= s.label :month, class: "block mb-2 text-sm font-medium text-gray-300" %>
+        <%= s.collection_check_boxes :month_ids, Month.all, :id, :name do |u| %>
+          <div class="collection-check-box items-center w-full px-4 py-1 text-sm transition duration-500 ease-in-out transform rounded-lg focus:shadow-outline hover:bg-gray-900 text-gray-300">
+            <%= u.check_box %>
+            <%= u.label %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="mb-6">
+      <%= s.label :salary, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= s.text_field :salary, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Salary" %>
+    </div>
+
+    <div class="mb-6">
+      <%= s.label :team, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= s.collection_check_boxes :user_ids, User.all.where.not(work_group: 'User'), :id, :name_with_initial do |u| %>
+        <div class="collection-check-box items-center w-full px-4 py-1 text-sm transition duration-500 ease-in-out transform rounded-lg focus:shadow-outline hover:bg-gray-900 text-gray-300">
+          <%= u.check_box %>
+          <%= u.label %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= s.submit "Submit", class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %>
+
+  <% end %>
+</div>
