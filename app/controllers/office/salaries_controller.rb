@@ -14,6 +14,7 @@ class Office::SalariesController < OfficeController
     @month = Month.find(params[:id])
     @year = Year.find(params[:year_id])
     @users = User.where.not(work_group: "User")
+    @salaries = Salary.all
   end
 
   def project

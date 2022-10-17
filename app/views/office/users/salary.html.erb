@@ -11,7 +11,7 @@
       <table class="w-full text-sm text-gray-500 dark:text-gray-400 text-center">
         <thead class="text-xs uppercase bg-gray-700 text-gray-400">
         <tr>
-          <th></th>
+          <th class="py-3 px-2"><%= @year.name %></th>
           <th colspan="12" class="py-3 px-2">Month</th>
           <th></th>
         </tr>
@@ -120,8 +120,13 @@
                 <% end %>
               </td>
               <td class="py-4 px-6 text-white font-medium whitespace-nowrap">
-                <%#= @user.salaries.map(&:salary).sum %>
-                Sum
+                <% a = 0 %>
+                <% @salaries.each do |s| %>
+                  <% if s.year_ids == [@year.id] && s.user_ids.include?(@user.id) %>
+                    <% a += s.salary %>
+                  <% end %>
+                <% end %>
+                <%= a %>
               </td>
             </div>
           </tr>

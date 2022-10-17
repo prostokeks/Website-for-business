@@ -55,18 +55,28 @@
         <% end %>
         <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
           <th colspan="4" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
-            Salaries
+            Total salaries
           </th>
           <td class="py-4 text-white font-medium">
-            Sum
+            <% a = 0 %>
+            <% @salaries.each do |s| %>
+              <% if s.month_ids == [@month.id] && s.year_ids == [@year.id] %>
+                <% a += s.salary * s.users.size %>
+              <% end %>
+            <% end %>
+            <%= a %>
           </td>
         </tr>
         <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
           <th colspan="4" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
-            Employees
+            Total employees
           </th>
           <td class="py-4 text-white font-medium">
-            Sum
+            <% @salaries.each do |s| %>
+              <% if s.month_ids == [@month.id] && s.year_ids == [@year.id] %>
+                <%= s.users.size %>
+              <% end %>
+            <% end %>
           </td>
         </tr>
         </tbody>
