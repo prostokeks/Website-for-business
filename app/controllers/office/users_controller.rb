@@ -25,6 +25,7 @@ class Office::UsersController < OfficeController
     @months = Month.all
     @year = Year.find(params[:year_id])
     @salaries = Salary.all
+    @invoices = Invoice.all
   end
 
   private

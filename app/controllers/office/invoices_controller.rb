@@ -21,8 +21,6 @@ class Office::InvoicesController < OfficeController
     @product = Product.find(params[:id])
     @users = User.all
     @invoices = Invoice.all
-    #@users = User.product_ids == [@product.id]
-    #@users = User.where.not(work_group: "User")
   end
 
   def new
