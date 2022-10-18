@@ -7,7 +7,7 @@
       <table class="w-full text-xs text-gray-500 dark:text-gray-400 text-center">
         <thead class="text-xs uppercase bg-gray-700 text-gray-400">
         <tr>
-          <th colspan="4" class="py-3 px-2"><%= @year.name %> <%= @month.name %></th>
+          <th colspan="8" class="py-3 px-2"><%= @year.name %> <%= @month.name %></th>
         </tr>
         <tr>
           <th scope="col" class="py-3 px-2">
@@ -15,6 +15,18 @@
           </th>
           <th scope="col" class="py-3 px-6">
             Employees
+          </th>
+          <th scope="col" class="py-3 px-6">
+            PM
+          </th>
+          <th scope="col" class="py-3 px-6">
+            FD
+          </th>
+          <th scope="col" class="py-3 px-6">
+            WD
+          </th>
+          <th scope="col" class="py-3 px-6">
+            BD
           </th>
           <th scope="col" class="py-3 px-6">
             Total
@@ -43,6 +55,58 @@
                 <% a = 0 %>
                 <% p.invoices.each do |i| %>
                   <% if i.year_ids == [@year.id] && i.month_ids == [@month.id] %>
+                    <% i.users.each do |u| %>
+                      <% if u.role == "Project Manager" %>
+                        <% a += 1 %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+                <%= a %>
+              </td>
+              <td class="py-4 text-white">
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] && i.month_ids == [@month.id] %>
+                    <% i.users.each do |u| %>
+                      <% if u.role == "Front-end Developer" %>
+                        <% a += 1 %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+                <%= a %>
+              </td>
+              <td class="py-4 text-white">
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] && i.month_ids == [@month.id] %>
+                    <% i.users.each do |u| %>
+                      <% if u.role == "Web Designer" %>
+                        <% a += 1 %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+                <%= a %>
+              </td>
+              <td class="py-4 text-white">
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] && i.month_ids == [@month.id] %>
+                    <% i.users.each do |u| %>
+                      <% if u.role == "Back-end Developer" %>
+                        <% a += 1 %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+                <%= a %>
+              </td>
+              <td class="py-4 text-white">
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] && i.month_ids == [@month.id] %>
                     <% a += i.rate * i.time %>
                   <% end %>
                 <% end %>
@@ -52,7 +116,7 @@
           </tr>
         <% end %>
         <tr>
-          <th colspan="2" class="text-sm py-4 px-6 font-bold whitespace-nowrap text-white text-left">
+          <th colspan="6" class="text-sm py-4 px-6 font-bold whitespace-nowrap text-white text-left">
             Total
           </th>
           <td class="py-4 text-white font-bold text-sm">
