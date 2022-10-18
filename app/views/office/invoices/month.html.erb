@@ -35,6 +35,7 @@
         </thead>
         <tbody>
         <% @products.each do |p| %>
+        <% unless p.status == "passive" && p.invoices.empty? %>
           <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
             <div class=" border-gray-700 min-w-full" >
               <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
@@ -114,6 +115,7 @@
               </td>
             </div>
           </tr>
+        <% end %>
         <% end %>
         <tr>
           <th colspan="6" class="text-sm py-4 px-6 font-bold whitespace-nowrap text-white text-left">

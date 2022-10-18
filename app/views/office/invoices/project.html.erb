@@ -35,34 +35,36 @@
         </thead>
         <tbody>
         <% @users.each do |u| %>
-          <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
-            <div class=" border-gray-700 min-w-full" >
-              <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
-                <%= link_to(office_user_salary_path(@year, u)) do %>
-                  <%= u.name %> <%= u.last_name %>
-                <% end %>
-              </th>
-              <td class="py-4 text-white">
-                <%= u.role %>
-              </td>
-              <td class="py-4 text-white">
-                <%= u.level %>
-              </td>
-              <% u.invoices.each do |i| %>
-                <% if i.year_ids == [@year.id] && i.month_ids == [@month.id] && i.product_ids == [@product.id] %>
-                  <td class="py-4 text-white">
-                    <%= i.time %>
-                  </td>
-                  <td class="py-4 text-white">
-                    <%= i.rate %>
-                  </td>
-                  <td class="py-4 text-white">
-                    <%= i.rate * i.time %>
-                  </td>
-                <% end %>
+          <% unless u.invoices.empty? %>
+            <% u.invoices.each do |i| %>
+              <% if i.year_ids == [@year.id] && i.month_ids == [@month.id] && i.product_ids == [@product.id] %>
+                <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
+                  <div class=" border-gray-700 min-w-full" >
+                    <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
+                      <%= link_to(office_user_salary_path(@year, u)) do %>
+                        <%= u.name %> <%= u.last_name %>
+                      <% end %>
+                    </th>
+                    <td class="py-4 text-white">
+                      <%= u.role %>
+                    </td>
+                    <td class="py-4 text-white">
+                      <%= u.level %>
+                    </td>
+                        <td class="py-4 text-white">
+                          <%= i.time %>
+                        </td>
+                        <td class="py-4 text-white">
+                          <%= i.rate %>
+                        </td>
+                        <td class="py-4 text-white">
+                          <%= i.rate * i.time %>
+                        </td>
+                  </div>
+                </tr>
               <% end %>
-            </div>
-          </tr>
+            <% end %>
+          <% end %>
         <% end %>
         <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
           <th colspan="5" class="text-sm py-4 px-6 font-bold whitespace-nowrap text-white text-left">
