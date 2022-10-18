@@ -51,106 +51,139 @@
                 <%= p.user_ids.size %>
               </td>
               <td class="py-4 text-white">
-                <%# u.salaries.each do |s| %>
-                  <%# if s.month_ids == [1] && s.year_ids == [@year.id] %>
-                    <%#= s.salary %>
-                  <%# end %>
-                <%# end %>
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] && i.month_ids == [1] %>
+                    <% a += i.rate * i.time %>
+                  <% end %>
+                <% end %>
+                <%= a %>
               </td>
               <td class="py-4 text-white">
-                <%# u.salaries.each do |s| %>
-                  <%# if s.month_ids == [2] && s.year_ids == [@year.id] %>
-                    <%#= s.salary %>
-                  <%# end %>
-                <%# end %>
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] && i.month_ids == [2] %>
+                    <% a += i.rate * i.time %>
+                  <% end %>
+                <% end %>
+                <%= a %>
               </td>
               <td class="py-4 text-white">
-                <%# u.salaries.each do |s| %>
-                  <%# if s.month_ids == [3] && s.year_ids == [@year.id] %>
-                    <%#= s.salary %>
-                  <%# end %>
-                <%# end %>
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] && i.month_ids == [3] %>
+                    <% a += i.rate * i.time %>
+                  <% end %>
+                <% end %>
+                <%= a %>
               </td>
               <td class="py-4 text-white">
-                <%# u.salaries.each do |s| %>
-                  <%# if s.month_ids == [4] && s.year_ids == [@year.id] %>
-                    <%#= s.salary %>
-                  <%# end %>
-                <%# end %>
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] && i.month_ids == [4] %>
+                    <% a += i.rate * i.time %>
+                  <% end %>
+                <% end %>
+                <%= a %>
               </td>
               <td class="py-4 text-white">
-                <%# u.salaries.each do |s| %>
-                  <%# if s.month_ids == [5] && s.year_ids == [@year.id] %>
-                    <%#= s.salary %>
-                  <%# end %>
-                <%# end %>
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] && i.month_ids == [5] %>
+                    <% a += i.rate * i.time %>
+                  <% end %>
+                <% end %>
+                <%= a %>
               </td>
               <td class="py-4 text-white">
-                <%# u.salaries.each do |s| %>
-                  <%# if s.month_ids == [6] && s.year_ids == [@year.id] %>
-                    <%#= s.salary %>
-                  <%# end %>
-                <%# end %>
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] && i.month_ids == [6] %>
+                    <% a += i.rate * i.time %>
+                  <% end %>
+                <% end %>
+                <%= a %>
               </td>
               <td class="py-4 text-white">
-                <%# u.salaries.each do |s| %>
-                  <%# if s.month_ids == [7] && s.year_ids == [@year.id] %>
-                    <%#= s.salary %>
-                  <%# end %>
-                <%# end %>
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] && i.month_ids == [7] %>
+                    <% a += i.rate * i.time %>
+                  <% end %>
+                <% end %>
+                <%= a %>
               </td>
               <td class="py-4 text-white">
-                <%# u.salaries.each do |s| %>
-                  <%# if s.month_ids == [8] && s.year_ids == [@year.id] %>
-                    <%#= s.salary %>
-                  <%# end %>
-                <%# end %>
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] && i.month_ids == [8] %>
+                    <% a += i.rate * i.time %>
+                  <% end %>
+                <% end %>
+                <%= a %>
               </td>
               <td class="py-4 text-white">
-                <%# u.salaries.each do |s| %>
-                  <%# if s.month_ids == [9] && s.year_ids == [@year.id] %>
-                    <%#= s.salary %>
-                  <%# end %>
-                <%# end %>
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] && i.month_ids == [9] %>
+                    <% a += i.rate * i.time %>
+                  <% end %>
+                <% end %>
+                <%= a %>
               </td>
               <td class="py-4 text-white">
-                <%# u.salaries.each do |s| %>
-                  <%# if s.month_ids == [10] && s.year_ids == [@year.id] %>
-                    <%#= s.salary %>
-                  <%# end %>
-                <%# end %>
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] && i.month_ids == [10] %>
+                    <% a += i.rate * i.time %>
+                  <% end %>
+                <% end %>
+                <%= a %>
               </td>
               <td class="py-4 text-white">
-                <%# u.salaries.each do |s| %>
-                  <%# if s.month_ids == [11] && s.year_ids == [@year.id] %>
-                    <%#= s.salary %>
-                  <%# end %>
-                <%# end %>
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] && i.month_ids == [11] %>
+                    <% a += i.rate * i.time %>
+                  <% end %>
+                <% end %>
+                <%= a %>
               </td>
               <td class="py-4 text-white">
-                <%# u.salaries.each do |s| %>
-                  <%# if s.month_ids == [12] && s.year_ids == [@year.id] %>
-                    <%#= s.salary %>
-                  <%# end %>
-                <%# end %>
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] && i.month_ids == [12] %>
+                    <% a += i.rate * i.time %>
+                  <% end %>
+                <% end %>
+                <%= a %>
               </td>
               <td class="py-4 text-white font-medium whitespace-nowrap">
-                Sum
-                <%#= u.salaries.map(&:salary).sum %>
-                <%#= u.products.where(status: "active").size %>
-                <%# self.outfits.where(:scraped => true).where(:status => 'Approved').map(&:id) %>
+                <% a = 0 %>
+                <% p.invoices.each do |i| %>
+                  <% if i.year_ids == [@year.id] %>
+                    <% a += i.rate * i.time %>
+                  <% end %>
+                <% end %>
+                <%= a %>
               </td>
             </div>
           </tr>
         <% end %>
-        <!--<tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
-          <th colspan="13" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
-            Salaries
+        <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
+          <th colspan="14" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
+            Total
           </th>
           <td class="py-4 text-white font-medium">
-            Sum
+            <% a = 0 %>
+            <% @invoices.each do |i| %>
+              <% if i.year_ids == [@year.id] %>
+                <% a += i.rate * i.time %>
+              <% end %>
+            <% end %>
+            <%= a %>
           </td>
-        </tr>-->
+        </tr>
         </tbody>
       </table>
     </div>

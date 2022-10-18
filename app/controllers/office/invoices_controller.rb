@@ -5,6 +5,7 @@ class Office::InvoicesController < OfficeController
     @year = Year.find(params[:id])
     @months = Month.all
     @products = Product.all
+    @invoices = Invoice.all
   end
 
   def month
