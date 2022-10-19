@@ -1,6 +1,6 @@
-<section class="dark:bg-gray-800 dark:text-gray-100">
+<section class="bg-gray-800 text-gray-100">
   <div class="container flex flex-col items-center p-4 mx-auto md:p-8 mt-20">
-    <div class="flex flex-col w-full divide-y sm:flex-row sm:divide-y-0 sm:divide-x sm:px-8 lg:px-12 xl:px-32 divide-gray-700">
+    <div class="flex flex-col w-full sm:flex-row sm:divide-y-0 sm:divide-x sm:px-8 lg:px-12 xl:px-32 divide-gray-700">
       <div class="flex flex-col w-full divide-y divide-gray-700">
         <%= link_to "My profile", office_user_profile_path(current_user), class: "flex items-center justify-center p-4 sm:py-8 lg:py-12"%>
         <%= link_to "Messages", office_rooms_path, class: "flex items-center justify-center p-4 sm:py-8 lg:py-12"%>
@@ -11,7 +11,7 @@
         <%= link_to "Products", office_products_path, class: "flex items-center justify-center p-4 sm:py-8 lg:py-12"%>
         <%= link_to "Forum", forums_path, class: "flex items-center justify-center p-4 sm:py-8 lg:py-12"%>
       </div>
-      <div class="hidden w-full divide-y sm:flex-col sm:flex divide-gray-700">
+      <div class="hidden w-full sm:flex-col sm:flex divide-y divide-gray-700">
         <%= link_to "Settings", edit_user_registration_path, class: "flex items-center justify-center p-4 sm:py-8 lg:py-12"%>
         <%= link_to "Back", root_path, class: "flex items-center justify-center p-4 sm:py-8 lg:py-12"%>
         <%= link_to "Exit", destroy_user_session_path, class: "flex items-center justify-center p-4 sm:py-8 lg:py-12"%>
