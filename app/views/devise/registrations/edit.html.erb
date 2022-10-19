@@ -24,13 +24,19 @@
       <%= f.text_field :phone, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "+380638968944" %>
     </div>
   </div>
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 mb-6 w-full group">
+        <%= f.label :birthday, class: "block mb-2 text-sm font-medium text-gray-300" %>
+        <%= f.text_field :birthday, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "23.05.1994" %>
+      </div>
+    </div>
 
   <div class="field">
     <%= f.label :avatar, class: "block mb-2 text-sm font-medium text-gray-300" %>
     <%= f.file_field :avatar, class: "text-gray-300 text-sm" %>
   </div>
 
-  <div class="mt-6 grid md:grid-cols-3">
+  <div class="mt-6 grid md:grid-cols-2">
     <div class="field mb-6">
       <%= f.label :work_group, class: "block mb-2 text-sm font-medium text-gray-300" %>
       <%= f.select :work_group, User::WORKGROUP %>
@@ -39,9 +45,16 @@
       <%= f.label :level, class: "block mb-2 text-sm font-medium text-gray-300" %>
       <%= f.select :level, User::LEVEL %>
     </div>
+  </div>
+
+  <div class="mt-6 grid md:grid-cols-2">
     <div class="relative z-0 mb-6 w-full group">
       <%= f.label :role, class: "block mb-2 text-sm font-medium text-gray-300" %>
       <%= f.select :role, User::ROLE %>
+    </div>
+    <div class="relative z-0 mb-6 w-full group">
+      <%= f.label :gender, class: "block mb-2 text-sm font-medium text-gray-300" %>
+      <%= f.select :gender, User::GENDER %>
     </div>
   </div>
 
