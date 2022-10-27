@@ -32,32 +32,32 @@
           </tr>
           </thead>
           <tbody>
-          <% @careers.each do |c| %>
+          <% @careers.each do |career| %>
             <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-center text-gray-500">
               <div class=" border-gray-700 min-w-full" >
                 <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
-                  <p><%= c.title %></p>
+                  <p><%= career.title %></p>
                 </th>
                 <td class="py-4 px-6">
-                  <%= c.salary %>
+                  <%= career.salary %>
                 </td>
                 <td class="py-4 px-6 text-white">
-                  <p><%= c.work_load %></p>
+                  <p><%= career.work_load %></p>
                 </td>
                 <td class="py-4 px-6 text-white">
-                  <p><%= c.location %></p>
+                  <p><%= career.location %></p>
                 </td>
                 <td class="py-4 px-6 text-white">
-                  <p><%= c.status %></p>
+                  <p><%= career.status %></p>
                 </td>
                 <td class="py-4 px-6">
-                  <%= link_to(office_career_path(c), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                  <%= link_to(office_career_path(career), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
                     <i class="material-icons-outlined text-base">visibility</i>
                   <% end %>
-                  <%= link_to(edit_office_career_path(c), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                  <%= link_to(edit_office_career_path(career), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
                     <i class="material-icons-outlined text-base">edit</i>
                   <% end %>
-                  <%= link_to(office_career_path(c), data: { "turbo-method": :delete,
+                  <%= link_to(office_career_path(career), data: { "turbo-method": :delete,
                                                               turbo_confirm: "You sure?" }, class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
                     <i class="material-icons-round text-base">delete_outline</i>
                   <% end %>

@@ -2,19 +2,19 @@
   <div class="container flex flex-col justify-center px-4 mx-auto">
     <h1 class="text-3xl font-semibold sm:text-4xl text-center mb-20">Join the team</h1>
     <div class="space-y-4">
-      <% @careers.each do |c| %>
+      <% @careers.each do |career| %>
         <div class="flex justify-center">
             <details class="w-1/2 border rounded-lg">
-              <summary class="px-4 py-6 focus:outline-none focus-visible:ring-violet-400 uppercase"><%= c.title %></summary>
+              <summary class="px-4 py-6 focus:outline-none focus-visible:ring-violet-400 uppercase"><%= career.title %></summary>
               <h2 class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">REQUIREMENTS</h2>
-              <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400"><%= c.requirement %></p>
+              <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400"><%= career.requirement %></p>
               <h2 class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">BENEFITS</h2>
-              <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400"><%= c.benefit %></p>
+              <p class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400"><%= career.benefit %></p>
               <div class="grid md:grid-cols-2 md:gap-6">
                 <div class="relative z-0 w-full group">
-                  <h2 class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">SALARY: <%= c.salary %></h2>
-                  <h2 class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">WORK LOAD: <%= c.work_load %></h2>
-                  <h2 class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">LOCATION: <%= c.location %></h2>
+                  <h2 class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">SALARY: <%= career.salary %></h2>
+                  <h2 class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">WORK LOAD: <%= career.work_load %></h2>
+                  <h2 class="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">LOCATION: <%= career.location %></h2>
                 </div>
                 <div class="relative z-0 w-full group -mt-4">
                   <div class="field w-full flex justify-center my-6">

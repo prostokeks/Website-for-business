@@ -2,7 +2,6 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
 <div class="bg-gray-800">
-
   <div class="container mx-auto my-5 p-5">
     <div class="md:flex no-wrap md:-mx-2 ">
       <div class="w-full md:w-3/12 md:mx-2">
@@ -24,19 +23,19 @@
         <% unless @user.skills.empty? %>
         <div class="rounded-lg bg-gray-700 p-3">
           <div class="flex items-center space-x-3 font-semibold text-gray-900 leading-8">
-                        <span class="text-blue-500">
-                            <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                 stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                        </span>
+            <span class="text-blue-500">
+              <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </span>
             <span class="tracking-wide text-blue-500 text-xl">Skills</span>
           </div>
           <div class="flex mt-4">
               <div class="text-center my-2">
-            <% @user.skills.each do |u| %>
-                  <span class="bg-blue-300 text-blue-800 font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800"><%= u.name %></span>
+            <% @user.skills.each do |skill| %>
+                  <span class="bg-blue-300 text-blue-800 font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800"><%= skill.name %></span>
             <% end %>
               </div>
           </div>
@@ -47,18 +46,18 @@
         <div class="rounded-lg bg-gray-700 p-3">
           <div class="flex items-center space-x-3 font-semibold text-gray-900 leading-8">
             <span class="text-blue-500">
-                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                     stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
+              <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
             </span>
             <span class="tracking-wide text-blue-500 text-xl">Hobbies</span>
           </div>
           <div class="flex mt-4">
             <div class="text-center my-2">
-              <% @user.hobbies.each do |u| %>
-                <span class="bg-green-300 text-green-800 font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800"><%= u.name %></span>
+              <% @user.hobbies.each do |hobby| %>
+                <span class="bg-green-300 text-green-800 font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800"><%= hobby.name %></span>
               <% end %>
             </div>
           </div>
@@ -69,18 +68,18 @@
         <div class="rounded-lg bg-gray-700 p-3">
           <div class="flex items-center space-x-3 font-semibold text-gray-900 leading-8">
             <span class="text-blue-500">
-                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                     stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
+              <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
             </span>
             <span class="tracking-wide text-blue-500 text-xl">Languages</span>
           </div>
           <div class="flex mt-4">
             <div class="text-center my-2">
-              <% @user.languages.each do |u| %>
-                <span class="bg-yellow-300 text-yellow-800 font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800"><%= u.name %></span>
+              <% @user.languages.each do |language| %>
+                <span class="bg-yellow-300 text-yellow-800 font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800"><%= language.name %></span>
               <% end %>
             </div>
           </div>
@@ -91,11 +90,11 @@
         <div class="rounded-lg bg-gray-700 p-3 shadow-sm">
           <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
             <span class="text-blue-500">
-                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                     stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+              <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
             </span>
             <span class="tracking-wide text-blue-500 text-xl">About</span>
           </div>
@@ -143,23 +142,23 @@
             <div>
               <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
                 <span class="text-blue-500">
-                    <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                         stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
+                  <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                       stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
                 </span>
                 <span class="tracking-wide text-blue-500 text-xl">Active Projects</span>
               </div>
               <ul class="list-inside space-y-2 text-gray-300">
-                <% @user.products.each do |u| %>
-                  <% if u.status == "active" %>
+                <% @user.products.each do |product| %>
+                  <% if product.status == "active" %>
                     <li>
                       <div>
-                        <%= u.title %>
+                        <%= product.title %>
                       </div>
                       <div class="text-xs text-gray-500">
-                        <%= u.ptype %>
+                        <%= product.ptype %>
                       </div>
                     </li>
                   <% end %>
@@ -178,14 +177,14 @@
                 <span class="tracking-wide text-blue-500 text-xl">Passive Projects</span>
               </div>
               <ul class="list-inside space-y-2 text-gray-300">
-                <% @user.products.each do |u| %>
-                  <% if u.status == "passive" %>
+                <% @user.products.each do |product| %>
+                  <% if product.status == "passive" %>
                     <li>
                       <div>
-                        <%= u.title %>
+                        <%= product.title %>
                       </div>
                       <div class="text-xs text-gray-500">
-                        <%= u.ptype %>
+                        <%= product.ptype %>
                       </div>
                     </li>
                   <% end %>

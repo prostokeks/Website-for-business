@@ -27,32 +27,32 @@
         </tr>
         </thead>
         <tbody>
-        <% @contacts.each do |c| %>
+        <% @contacts.each do |contact| %>
           <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-center text-gray-500">
             <div class=" border-gray-700 min-w-full" >
               <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
-                <p><%= c.name %></p>
+                <p><%= contact.name %></p>
               </th>
               <td class="py-4 px-6">
-                <%= c.created_at.strftime("%d.%m.%Y") %>
+                <%= contact.created_at.strftime("%d.%m.%Y") %>
               </td>
               <td class="py-4 px-6 text-white">
-                <p><%= c.mobile %></p>
+                <p><%= contact.mobile %></p>
               </td>
               <td class="py-4 px-6 text-white">
-                <p><%= c.email %></p>
+                <p><%= contact.email %></p>
               </td>
               <td class="py-4 px-6 text-white">
-                <p><%= c.status %></p>
+                <p><%= contact.status %></p>
               </td>
               <td class="py-4 px-6">
-                <%= link_to(office_contact_path(c), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                <%= link_to(office_contact_path(contact), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
                   <i class="material-icons-outlined text-base">visibility</i>
                 <% end %>
-                <%= link_to(edit_office_contact_path(c), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                <%= link_to(edit_office_contact_path(contact), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
                   <i class="material-icons-outlined text-base">edit</i>
                 <% end %>
-                <%= link_to(office_contact_path(c), data: { "turbo-method": :delete,
+                <%= link_to(office_contact_path(contact), data: { "turbo-method": :delete,
                                                          turbo_confirm: "You sure?" }, class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
                   <i class="material-icons-round text-base">delete_outline</i>
                 <% end %>

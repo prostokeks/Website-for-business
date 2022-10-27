@@ -25,44 +25,28 @@
         </p>
       </div>
     </div>
-    <%= form_with model: @contact do |c| %>
+    <%= form_with model: @contact do |contact| %>
       <form class="flex flex-col py-6 space-y-6 md:py-0 md:px-6 ng-untouched ng-pristine ng-valid">
         <label class="block pl-6">
-          <%= c.label "Full name" %>
-          <%= c.text_field :name, required: true, class: "bg-gray-800 border border-gray-500 text-white rounded-lg focus:border-blue block w-full p-2 mt-2", placeholder: "Leroy Jenkins" %>
+          <%= contact.label "Full name" %>
+          <%= contact.text_field :name, required: true, class: "bg-gray-800 border border-gray-500 text-white rounded-lg focus:border-blue block w-full p-2 mt-2", placeholder: "Leroy Jenkins" %>
         </label>
         <label class="block pl-6 py-6">
-          <%= c.label :mobile%>
-          <%= c.text_field :mobile, required: true, class: "bg-gray-800 border border-gray-500 text-white rounded-lg focus:border-blue block w-full p-2 mt-2", placeholder: "+380638968944" %>
+          <%= contact.label :mobile%>
+          <%= contact.text_field :mobile, required: true, class: "bg-gray-800 border border-gray-500 text-white rounded-lg focus:border-blue block w-full p-2 mt-2", placeholder: "+380638968944" %>
         </label>
         <label class="block pl-6 ">
-          <%= c.label :email %>
-          <%= c.text_field :email, required: true, class: "bg-gray-800 border border-gray-500 text-white rounded-lg focus:border-blue block w-full p-2 mt-2", placeholder: "dosi@gmail.com" %>
+          <%= contact.label :email %>
+          <%= contact.text_field :email, required: true, class: "bg-gray-800 border border-gray-500 text-white rounded-lg focus:border-blue block w-full p-2 mt-2", placeholder: "dosi@gmail.com" %>
         </label>
         <label class="block pl-6 py-6">
-          <%= c.label :message %>
-          <%= c.text_area :body, required: true, class: "bg-gray-800 border border-gray-500 text-white rounded-lg focus:border-blue block w-full p-2 mt-2" %>
+          <%= contact.label :message %>
+          <%= contact.text_area :body, required: true, class: "bg-gray-800 border border-gray-500 text-white rounded-lg focus:border-blue block w-full p-2 mt-2" %>
         </label>
         <div class= "block pl-6">
-          <%= c.submit "Submit", class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %>
+          <%= contact.submit "Submit", class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %>
         </div>
       </form>
     <% end %>
   </div>
 </section>
-<!--
-<form novalidate="" class="flex flex-col py-6 space-y-6 md:py-0 md:px-6 ng-untouched ng-pristine ng-valid">
-  <label class="block">
-    <span class="mb-1">Full name</span>
-    <input type="text" placeholder="Leroy Jenkins" class="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800">
-  </label>
-  <label class="block">
-    <span class="mb-1">Email address</span>
-    <input type="email" placeholder="leroy@jenkins.com" class="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800">
-  </label>
-  <label class="block">
-    <span class="mb-1">Message</span>
-    <textarea rows="3" class="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800"></textarea>
-  </label>
-  <button type="button" class="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-violet-400 dark:text-gray-900 focus:ring-violet-400 hover:ring-violet-400">Submit</button>
-</form>

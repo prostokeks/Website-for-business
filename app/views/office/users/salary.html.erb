@@ -25,9 +25,9 @@
           <th scope="col" class="py-3 px-6">
             Type
           </th>
-          <% @months.each do |u| %>
+          <% @months.each do |month| %>
             <th scope="col" class="py-3 px-6">
-              <%= u.id %>
+              <%= month.id %>
             </th>
           <% end %>
           <th scope="col" class="py-3 px-6">
@@ -42,195 +42,195 @@
                 Salary
               </th>
               <td class="py-4 text-white">
-                <% @user.salaries.each do |s| %>
-                  <% if s.month_ids == [1] && s.year_ids == [@year.id] %>
-                    <%= s.salary %>
+                <% @user.salaries.each do |salary| %>
+                  <% if salary.month_ids == [1] && salary.year_ids == [@year.id] %>
+                    <%= salary.salary %>
                   <% end %>
                 <% end %>
               </td>
               <td class="py-4 text-white">
-                <% @user.salaries.each do |s| %>
-                  <% if s.month_ids == [2] && s.year_ids == [@year.id] %>
-                    <%= s.salary %>
+                <% @user.salaries.each do |salary| %>
+                  <% if salary.month_ids == [2] && salary.year_ids == [@year.id] %>
+                    <%= salary.salary %>
                   <% end %>
                 <% end %>
               </td>
               <td class="py-4 text-white">
-                <% @user.salaries.each do |s| %>
-                  <% if s.month_ids == [3] && s.year_ids == [@year.id] %>
-                    <%= s.salary %>
+                <% @user.salaries.each do |salary| %>
+                  <% if salary.month_ids == [3] && salary.year_ids == [@year.id] %>
+                    <%= salary.salary %>
                   <% end %>
                 <% end %>
               </td>
               <td class="py-4 text-white">
-                <% @user.salaries.each do |s| %>
-                  <% if s.month_ids == [4] && s.year_ids == [@year.id] %>
-                    <%= s.salary %>
+                <% @user.salaries.each do |salary| %>
+                  <% if salary.month_ids == [4] && salary.year_ids == [@year.id] %>
+                    <%= salary.salary %>
                   <% end %>
                 <% end %>
               </td>
               <td class="py-4 text-white">
-                <% @user.salaries.each do |s| %>
-                  <% if s.month_ids == [5] && s.year_ids == [@year.id] %>
-                    <%= s.salary %>
+                <% @user.salaries.each do |salary| %>
+                  <% if salary.month_ids == [5] && salary.year_ids == [@year.id] %>
+                    <%= salary.salary %>
                   <% end %>
                 <% end %>
               </td>
               <td class="py-4 text-white">
-                <% @user.salaries.each do |s| %>
-                  <% if s.month_ids == [6] && s.year_ids == [@year.id] %>
-                    <%= s.salary %>
+                <% @user.salaries.each do |salary| %>
+                  <% if salary.month_ids == [6] && salary.year_ids == [@year.id] %>
+                    <%= salary.salary %>
                   <% end %>
                 <% end %>
               </td>
               <td class="py-4 text-white">
-                <% @user.salaries.each do |s| %>
-                  <% if s.month_ids == [7] && s.year_ids == [@year.id] %>
-                    <%= s.salary %>
+                <% @user.salaries.each do |salary| %>
+                  <% if salary.month_ids == [7] && salary.year_ids == [@year.id] %>
+                    <%= salary.salary %>
                   <% end %>
                 <% end %>
               </td>
               <td class="py-4 text-white">
-                <% @user.salaries.each do |s| %>
-                  <% if s.month_ids == [8] && s.year_ids == [@year.id] %>
-                    <%= s.salary %>
+                <% @user.salaries.each do |salary| %>
+                  <% if salary.month_ids == [8] && salary.year_ids == [@year.id] %>
+                    <%= salary.salary %>
                   <% end %>
                 <% end %>
               </td>
               <td class="py-4 text-white">
-                <% @user.salaries.each do |s| %>
-                  <% if s.month_ids == [9] && s.year_ids == [@year.id] %>
-                    <%= s.salary %>
+                <% @user.salaries.each do |salary| %>
+                  <% if salary.month_ids == [9] && salary.year_ids == [@year.id] %>
+                    <%= salary.salary %>
                   <% end %>
                 <% end %>
               </td>
               <td class="py-4 text-white">
-                <% @user.salaries.each do |s| %>
-                  <% if s.month_ids == [10] && s.year_ids == [@year.id] %>
-                    <%= s.salary %>
+                <% @user.salaries.each do |salary| %>
+                  <% if salary.month_ids == [10] && salary.year_ids == [@year.id] %>
+                    <%= salary.salary %>
                   <% end %>
                 <% end %>
               </td>
               <td class="py-4 text-white">
-                <% @user.salaries.each do |s| %>
-                  <% if s.month_ids == [11] && s.year_ids == [@year.id] %>
-                    <%= s.salary %>
+                <% @user.salaries.each do |salary| %>
+                  <% if salary.month_ids == [11] && salary.year_ids == [@year.id] %>
+                    <%= salary.salary %>
                   <% end %>
                 <% end %>
               </td>
               <td class="py-4 text-white">
-                <% @user.salaries.each do |s| %>
-                  <% if s.month_ids == [12] && s.year_ids == [@year.id] %>
-                    <%= s.salary %>
+                <% @user.salaries.each do |salary| %>
+                  <% if salary.month_ids == [12] && salary.year_ids == [@year.id] %>
+                    <%= salary.salary %>
                   <% end %>
                 <% end %>
               </td>
               <td class="py-4 px-6 text-white font-medium whitespace-nowrap">
                 <% a = 0 %>
-                <% @salaries.each do |s| %>
-                  <% if s.year_ids == [@year.id] && s.user_ids.include?(@user.id) %>
-                    <% a += s.salary %>
+                <% @salaries.each do |salary| %>
+                  <% if salary.year_ids == [@year.id] && salary.user_ids.include?(@user.id) %>
+                    <% a += salary.salary %>
                   <% end %>
                 <% end %>
                 <%= a %>
               </td>
             </div>
           </tr>
-          <% @user.products.each do |u| %>
+          <% @user.products.each do |product| %>
             <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
               <div class=" border-gray-700 min-w-full" >
                 <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
-                  <%= u.title %>
+                  <%= product.title %>
                 </th>
                 <td class="py-4 text-white">
-                  <% u.invoices.each do |i| %>
-                    <% if i.year_ids == [@year.id] && i.month_ids == [1] && i.user_ids == [@user.id] %>
-                        <%= i.rate * i.time %>
+                  <% product.invoices.each do |invoice| %>
+                    <% if invoice.year_ids == [@year.id] && invoice.month_ids == [1] && invoice.user_ids == [@user.id] %>
+                        <%= invoice.rate * invoice.time %>
                     <% end %>
                   <% end %>
                 </td>
                 <td class="py-4 text-white">
-                  <% u.invoices.each do |i| %>
-                    <% if i.year_ids == [@year.id] && i.month_ids == [2] && i.user_ids == [@user.id] %>
-                        <%= i.rate * i.time %>
+                  <% product.invoices.each do |invoice| %>
+                    <% if invoice.year_ids == [@year.id] && invoice.month_ids == [2] && invoice.user_ids == [@user.id] %>
+                        <%= invoice.rate * invoice.time %>
                     <% end %>
                   <% end %>
                 </td>
                 <td class="py-4 text-white">
-                  <% u.invoices.each do |i| %>
-                    <% if i.year_ids == [@year.id] && i.month_ids == [3] && i.user_ids == [@user.id] %>
-                      <%= i.rate * i.time %>
+                  <% product.invoices.each do |invoice| %>
+                    <% if invoice.year_ids == [@year.id] && invoice.month_ids == [3] && invoice.user_ids == [@user.id] %>
+                      <%= invoice.rate * invoice.time %>
                     <% end %>
                   <% end %>
                 </td>
                 <td class="py-4 text-white">
-                  <% u.invoices.each do |i| %>
-                    <% if i.year_ids == [@year.id] && i.month_ids == [4] && i.user_ids == [@user.id] %>
-                      <%= i.rate * i.time %>
+                  <% product.invoices.each do |invoice| %>
+                    <% if invoice.year_ids == [@year.id] && invoice.month_ids == [4] && invoice.user_ids == [@user.id] %>
+                      <%= invoice.rate * invoice.time %>
                     <% end %>
                   <% end %>
                 </td>
                 <td class="py-4 text-white">
-                  <% u.invoices.each do |i| %>
-                    <% if i.year_ids == [@year.id] && i.month_ids == [5] && i.user_ids == [@user.id] %>
-                      <%= i.rate * i.time %>
+                  <% product.invoices.each do |invoice| %>
+                    <% if invoice.year_ids == [@year.id] && invoice.month_ids == [5] && invoice.user_ids == [@user.id] %>
+                      <%= invoice.rate * invoice.time %>
                     <% end %>
                   <% end %>
                 </td>
                 <td class="py-4 text-white">
-                  <% u.invoices.each do |i| %>
-                    <% if i.year_ids == [@year.id] && i.month_ids == [6] && i.user_ids == [@user.id] %>
-                      <%= i.rate * i.time %>
+                  <% product.invoices.each do |invoice| %>
+                    <% if invoice.year_ids == [@year.id] && invoice.month_ids == [6] && invoice.user_ids == [@user.id] %>
+                      <%= invoice.rate * invoice.time %>
                     <% end %>
                   <% end %>
                 </td>
                 <td class="py-4 text-white">
-                  <% u.invoices.each do |i| %>
-                    <% if i.year_ids == [@year.id] && i.month_ids == [7] && i.user_ids == [@user.id] %>
-                      <%= i.rate * i.time %>
+                  <% product.invoices.each do |invoice| %>
+                    <% if invoice.year_ids == [@year.id] && invoice.month_ids == [7] && invoice.user_ids == [@user.id] %>
+                      <%= invoice.rate * invoice.time %>
                     <% end %>
                   <% end %>
                 </td>
                 <td class="py-4 text-white">
-                  <% u.invoices.each do |i| %>
-                    <% if i.year_ids == [@year.id] && i.month_ids == [8] && i.user_ids == [@user.id] %>
-                      <%= i.rate * i.time %>
+                  <% product.invoices.each do |invoice| %>
+                    <% if invoice.year_ids == [@year.id] && invoice.month_ids == [8] && invoice.user_ids == [@user.id] %>
+                      <%= invoice.rate * invoice.time %>
                     <% end %>
                   <% end %>
                 </td>
                 <td class="py-4 text-white">
-                  <% u.invoices.each do |i| %>
-                    <% if i.year_ids == [@year.id] && i.month_ids == [9] && i.user_ids == [@user.id] %>
-                      <%= i.rate * i.time %>
+                  <% product.invoices.each do |invoice| %>
+                    <% if invoice.year_ids == [@year.id] && invoice.month_ids == [9] && invoice.user_ids == [@user.id] %>
+                      <%= invoice.rate * invoice.time %>
                     <% end %>
                   <% end %>
                 </td>
                 <td class="py-4 text-white">
-                  <% u.invoices.each do |i| %>
-                    <% if i.year_ids == [@year.id] && i.month_ids == [10] && i.user_ids == [@user.id] %>
-                      <%= i.rate * i.time %>
+                  <% product.invoices.each do |invoice| %>
+                    <% if invoice.year_ids == [@year.id] && invoice.month_ids == [10] && invoice.user_ids == [@user.id] %>
+                      <%= invoice.rate * invoice.time %>
                     <% end %>
                   <% end %>
                 </td>
                 <td class="py-4 text-white">
-                  <% u.invoices.each do |i| %>
-                    <% if i.year_ids == [@year.id] && i.month_ids == [11] && i.user_ids == [@user.id] %>
-                      <%= i.rate * i.time %>
+                  <% product.invoices.each do |invoice| %>
+                    <% if invoice.year_ids == [@year.id] && invoice.month_ids == [11] && invoice.user_ids == [@user.id] %>
+                      <%= invoice.rate * invoice.time %>
                     <% end %>
                   <% end %>
                 </td>
                 <td class="py-4 text-white">
-                  <% u.invoices.each do |i| %>
-                    <% if i.year_ids == [@year.id] && i.month_ids == [12] && i.user_ids == [@user.id] %>
-                      <%= i.rate * i.time %>
+                  <% product.invoices.each do |invoice| %>
+                    <% if invoice.year_ids == [@year.id] && invoice.month_ids == [12] && invoice.user_ids == [@user.id] %>
+                      <%= invoice.rate * invoice.time %>
                     <% end %>
                   <% end %>
                 </td>
                 <td class="py-4 text-white">
                   <% a = 0 %>
-                  <% u.invoices.each do |i| %>
-                    <% if i.year_ids == [@year.id] && i.user_ids == [@user.id] %>
-                      <% a += i.rate * i.time %>
+                  <% product.invoices.each do |invoice| %>
+                    <% if invoice.year_ids == [@year.id] && invoice.user_ids == [@user.id] %>
+                      <% a += invoice.rate * invoice.time %>
                     <% end %>
                   <% end %>
                   <%= a %>
@@ -244,117 +244,117 @@
             </th>
             <td class="py-4 text-white font-medium">
               <% a = 0 %>
-              <% @invoices.each do |i| %>
-                <% if i.month_ids == [1] && i.year_ids == [@year.id] && i.user_ids == [@user.id] %>
-                  <% a += i.rate * i.time %>
+              <% @invoices.each do |invoice| %>
+                <% if invoice.month_ids == [1] && invoice.year_ids == [@year.id] && invoice.user_ids == [@user.id] %>
+                  <% a += invoice.rate * invoice.time %>
                 <% end %>
               <% end %>
               <%= a %>
             </td>
             <td class="py-4 text-white font-medium">
               <% a = 0 %>
-              <% @invoices.each do |i| %>
-                <% if i.month_ids == [2] && i.year_ids == [@year.id] && i.user_ids == [@user.id] %>
-                  <% a += i.rate * i.time %>
+              <% @invoices.each do |invoice| %>
+                <% if invoice.month_ids == [2] && invoice.year_ids == [@year.id] && invoice.user_ids == [@user.id] %>
+                  <% a += invoice.rate * invoice.time %>
                 <% end %>
               <% end %>
               <%= a %>
             </td>
             <td class="py-4 text-white font-medium">
               <% a = 0 %>
-              <% @invoices.each do |i| %>
-                <% if i.month_ids == [3] && i.year_ids == [@year.id] && i.user_ids == [@user.id] %>
-                  <% a += i.rate * i.time %>
+              <% @invoices.each do |invoice| %>
+                <% if invoice.month_ids == [3] && invoice.year_ids == [@year.id] && invoice.user_ids == [@user.id] %>
+                  <% a += invoice.rate * invoice.time %>
                 <% end %>
               <% end %>
               <%= a %>
             </td>
             <td class="py-4 text-white font-medium">
               <% a = 0 %>
-              <% @invoices.each do |i| %>
-                <% if i.month_ids == [4] && i.year_ids == [@year.id] && i.user_ids == [@user.id] %>
-                  <% a += i.rate * i.time %>
+              <% @invoices.each do |invoice| %>
+                <% if invoice.month_ids == [4] && invoice.year_ids == [@year.id] && invoice.user_ids == [@user.id] %>
+                  <% a += invoice.rate * invoice.time %>
                 <% end %>
               <% end %>
               <%= a %>
             </td>
             <td class="py-4 text-white font-medium">
               <% a = 0 %>
-              <% @invoices.each do |i| %>
-                <% if i.month_ids == [5] && i.year_ids == [@year.id] && i.user_ids == [@user.id] %>
-                  <% a += i.rate * i.time %>
+              <% @invoices.each do |invoice| %>
+                <% if invoice.month_ids == [5] && invoice.year_ids == [@year.id] && invoice.user_ids == [@user.id] %>
+                  <% a += invoice.rate * invoice.time %>
                 <% end %>
               <% end %>
               <%= a %>
             </td>
             <td class="py-4 text-white font-medium">
               <% a = 0 %>
-              <% @invoices.each do |i| %>
-                <% if i.month_ids == [6] && i.year_ids == [@year.id] && i.user_ids == [@user.id] %>
-                  <% a += i.rate * i.time %>
+              <% @invoices.each do |invoice| %>
+                <% if invoice.month_ids == [6] && invoice.year_ids == [@year.id] && invoice.user_ids == [@user.id] %>
+                  <% a += invoice.rate * invoice.time %>
                 <% end %>
               <% end %>
               <%= a %>
             </td>
             <td class="py-4 text-white font-medium">
               <% a = 0 %>
-              <% @invoices.each do |i| %>
-                <% if i.month_ids == [7] && i.year_ids == [@year.id] && i.user_ids == [@user.id] %>
-                  <% a += i.rate * i.time %>
+              <% @invoices.each do |invoice| %>
+                <% if invoice.month_ids == [7] && invoice.year_ids == [@year.id] && invoice.user_ids == [@user.id] %>
+                  <% a += invoice.rate * invoice.time %>
                 <% end %>
               <% end %>
               <%= a %>
             </td>
             <td class="py-4 text-white font-medium">
               <% a = 0 %>
-              <% @invoices.each do |i| %>
-                <% if i.month_ids == [8] && i.year_ids == [@year.id] && i.user_ids == [@user.id] %>
-                  <% a += i.rate * i.time %>
+              <% @invoices.each do |invoice| %>
+                <% if invoice.month_ids == [8] && invoice.year_ids == [@year.id] && invoice.user_ids == [@user.id] %>
+                  <% a += invoice.rate * invoice.time %>
                 <% end %>
               <% end %>
               <%= a %>
             </td>
             <td class="py-4 text-white font-medium">
               <% a = 0 %>
-              <% @invoices.each do |i| %>
-                <% if i.month_ids == [9] && i.year_ids == [@year.id] && i.user_ids == [@user.id] %>
-                  <% a += i.rate * i.time %>
+              <% @invoices.each do |invoice| %>
+                <% if invoice.month_ids == [9] && invoice.year_ids == [@year.id] && invoice.user_ids == [@user.id] %>
+                  <% a += invoice.rate * invoice.time %>
                 <% end %>
               <% end %>
               <%= a %>
             </td>
             <td class="py-4 text-white font-medium">
               <% a = 0 %>
-              <% @invoices.each do |i| %>
-                <% if i.month_ids == [10] && i.year_ids == [@year.id] && i.user_ids == [@user.id] %>
-                  <% a += i.rate * i.time %>
+              <% @invoices.each do |invoice| %>
+                <% if invoice.month_ids == [10] && invoice.year_ids == [@year.id] && invoice.user_ids == [@user.id] %>
+                  <% a += invoice.rate * invoice.time %>
                 <% end %>
               <% end %>
               <%= a %>
             </td>
             <td class="py-4 text-white font-medium">
               <% a = 0 %>
-              <% @invoices.each do |i| %>
-                <% if i.month_ids == [11] && i.year_ids == [@year.id] && i.user_ids == [@user.id] %>
-                  <% a += i.rate * i.time %>
+              <% @invoices.each do |invoice| %>
+                <% if invoice.month_ids == [11] && invoice.year_ids == [@year.id] && invoice.user_ids == [@user.id] %>
+                  <% a += invoice.rate * invoice.time %>
                 <% end %>
               <% end %>
               <%= a %>
             </td>
             <td class="py-4 text-white font-medium">
               <% a = 0 %>
-              <% @invoices.each do |i| %>
-                <% if i.month_ids == [12] && i.year_ids == [@year.id] && i.user_ids == [@user.id] %>
-                  <% a += i.rate * i.time %>
+              <% @invoices.each do |invoice| %>
+                <% if invoice.month_ids == [12] && invoice.year_ids == [@year.id] && invoice.user_ids == [@user.id] %>
+                  <% a += invoice.rate * invoice.time %>
                 <% end %>
               <% end %>
               <%= a %>
             </td>
             <td class="py-4 text-white font-medium">
               <% a = 0 %>
-              <% @invoices.each do |i| %>
-                <% if i.year_ids == [@year.id] && i.user_ids == [@user.id] %>
-                  <% a += i.rate * i.time %>
+              <% @invoices.each do |invoice| %>
+                <% if invoice.year_ids == [@year.id] && invoice.user_ids == [@user.id] %>
+                  <% a += invoice.rate * invoice.time %>
                 <% end %>
               <% end %>
               <%= a %>

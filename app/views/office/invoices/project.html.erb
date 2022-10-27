@@ -34,31 +34,31 @@
         </tr>
         </thead>
         <tbody>
-        <% @users.each do |u| %>
-          <% unless u.invoices.empty? %>
-            <% u.invoices.each do |i| %>
-              <% if i.year_ids == [@year.id] && i.month_ids == [@month.id] && i.product_ids == [@product.id] %>
+        <% @users.each do |user| %>
+          <% unless user.invoices.empty? %>
+            <% user.invoices.each do |invoice| %>
+              <% if invoice.year_ids == [@year.id] && invoice.month_ids == [@month.id] && invoice.product_ids == [@product.id] %>
                 <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-gray-500">
                   <div class=" border-gray-700 min-w-full" >
                     <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white text-left">
-                      <%= link_to(office_user_salary_path(@year, u)) do %>
-                        <%= u.name %> <%= u.last_name %>
+                      <%= link_to(office_user_salary_path(@year, user)) do %>
+                        <%= user.name %> <%= user.last_name %>
                       <% end %>
                     </th>
                     <td class="py-4 text-white">
-                      <%= u.role %>
+                      <%= user.role %>
                     </td>
                     <td class="py-4 text-white">
-                      <%= u.level %>
+                      <%= user.level %>
                     </td>
                         <td class="py-4 text-white">
-                          <%= i.time %>
+                          <%= invoice.time %>
                         </td>
                         <td class="py-4 text-white">
-                          <%= i.rate %>
+                          <%= invoice.rate %>
                         </td>
                         <td class="py-4 text-white">
-                          <%= i.rate * i.time %>
+                          <%= invoice.rate * invoice.time %>
                         </td>
                   </div>
                 </tr>
@@ -72,8 +72,8 @@
           </th>
           <td class="py-4 text-white font-bold text-sm">
             <% a = 0 %>
-            <% @product.invoices.each do |i| %>
-              <% if i.year_ids == [@year.id] && i.month_ids == [@month.id] %>
+            <% @product.invoices.each do |invoice| %>
+              <% if invoice.year_ids == [@year.id] && invoice.month_ids == [@month.id] %>
                 <% a += 1 %>
               <% end %>
             <% end %>
@@ -86,9 +86,9 @@
           </th>
           <td class="py-4 text-white font-bold text-sm">
             <% a = 0 %>
-            <% @invoices.each do |i| %>
-              <% if i.year_ids == [@year.id] && i.month_ids == [@month.id] && i.product_ids == [@product.id] %>
-                <% a += i.rate * i.time %>
+            <% @invoices.each do |invoice| %>
+              <% if invoice.year_ids == [@year.id] && invoice.month_ids == [@month.id] && invoice.product_ids == [@product.id] %>
+                <% a += invoice.rate * invoice.time %>
               <% end %>
             <% end %>
             <%= a %>

@@ -1,6 +1,6 @@
 <div>
-  <%= form_with(model: [@single_room, @message], remote: true) do |f| %>
-    <%= f.text_field :body, autocomplete: 'off' %>
-    <%= f.submit data:{disable_with: false} %>
+  <%= form_with(model: [@single_room, @message], remote: true) do |form| %>
+    <%= form.text_field :body, autocomplete: 'off' %>
+    <%= form.submit data:{disable_with: false} %>
   <% end %>
 </div>

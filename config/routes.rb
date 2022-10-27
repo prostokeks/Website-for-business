@@ -25,7 +25,6 @@ Rails.application.routes.draw do
   get 'office/docs', to: 'office/static_back_pages#docs'
   get 'office/dashboard', to: 'office/static_back_pages#index'
 
-
   resources :blogs do
     collection do
       post :index

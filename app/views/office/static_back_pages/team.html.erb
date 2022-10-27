@@ -3,64 +3,64 @@
     <h1 class="text-4xl font-bold leading-none text-center sm:text-5xl mb-24">Our team</h1>
     <h3 class="font-bold leading-none text-center text-2xl">Project Manager</h3>
     <div class="flex flex-row flex-wrap-reverse justify-center">
-      <% @userspm.each do |u| %>
-        <%= link_to (office_user_profile_path(u.id)) do %>
+      <% @userspm.each do |userspm| %>
+        <%= link_to (office_user_profile_path(userspm.id)) do %>
           <div class="flex flex-col justify-center m-8 text-center">
-            <% if u.avatar.attached? %>
-              <%= image_tag u.avatar, class: "self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500"%>
+            <% if userspm.avatar.attached? %>
+              <%= image_tag userspm.avatar, class: "self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500"%>
             <% else %>
               <img class="self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500" src="https://st2.depositphotos.com/47577860/46283/v/450/depositphotos_462836132-stock-illustration-assassin-deadpool-face-icon.jpg" alt="">
             <% end %>
-            <p class="text-xl font-semibold leading-tight"><%= u.name %> <%= u.last_name %></p>
-            <p class="dark:text-gray-400"><%= u.role %></p>
+            <p class="text-xl font-semibold leading-tight"><%= userspm.name %> <%= userspm.last_name %></p>
+            <p class="dark:text-gray-400"><%= userspm.role %></p>
           </div>
         <% end %>
       <% end %>
     </div>
     <h3 class="font-bold leading-none text-center text-2xl">Web Designer</h3>
     <div class="flex flex-row flex-wrap-reverse justify-center">
-      <% @userswd.each do |u| %>
-        <%= link_to (office_user_profile_path(u.id)) do %>
+      <% @userswd.each do |userswd| %>
+        <%= link_to (office_user_profile_path(userswd.id)) do %>
           <div class="flex flex-col justify-center m-8 text-center">
-            <% if u.avatar.attached? %>
-              <%= image_tag u.avatar, class: "self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500"%>
+            <% if userswd.avatar.attached? %>
+              <%= image_tag userswd.avatar, class: "self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500"%>
             <% else %>
               <img class="self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500" src="https://st2.depositphotos.com/47577860/46283/v/450/depositphotos_462836132-stock-illustration-assassin-deadpool-face-icon.jpg" alt="">
             <% end %>
-            <p class="text-xl font-semibold leading-tight"><%= u.name %> <%= u.last_name %></p>
-            <p class="dark:text-gray-400"><%= u.role %></p>
+            <p class="text-xl font-semibold leading-tight"><%= userswd.name %> <%= userswd.last_name %></p>
+            <p class="dark:text-gray-400"><%= userswd.role %></p>
           </div>
         <% end %>
       <% end %>
     </div>
     <h3 class="font-bold leading-none text-center text-2xl">Front-end Developer</h3>
     <div class="flex flex-row flex-wrap-reverse justify-center">
-      <% @usersfd.each do |u| %>
-        <%= link_to (office_user_profile_path(u.id)) do %>
+      <% @usersfd.each do |usersfd| %>
+        <%= link_to (office_user_profile_path(usersfd.id)) do %>
           <div class="flex flex-col justify-center m-8 text-center">
-            <% if u.avatar.attached? %>
-              <%= image_tag u.avatar, class: "self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500"%>
+            <% if usersfd.avatar.attached? %>
+              <%= image_tag usersfd.avatar, class: "self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500"%>
             <% else %>
               <img class="self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500" src="https://st2.depositphotos.com/47577860/46283/v/450/depositphotos_462836132-stock-illustration-assassin-deadpool-face-icon.jpg" alt="">
             <% end %>
-            <p class="text-xl font-semibold leading-tight"><%= u.name %> <%= u.last_name %></p>
-            <p class="dark:text-gray-400"><%= u.role %></p>
+            <p class="text-xl font-semibold leading-tight"><%= usersfd.name %> <%= usersfd.last_name %></p>
+            <p class="dark:text-gray-400"><%= usersfd.role %></p>
           </div>
         <% end %>
       <% end %>
     </div>
     <h3 class="font-bold leading-none text-center text-2xl">Back-end Developer</h3>
     <div class="flex flex-row flex-wrap-reverse justify-center">
-      <% @usersbd.each do |u| %>
-        <%= link_to (office_user_profile_path(u.id)) do %>
+      <% @usersbd.each do |usersbd| %>
+        <%= link_to (office_user_profile_path(usersbd.id)) do %>
           <div class="flex flex-col justify-center m-8 text-center">
-            <% if u.avatar.attached? %>
-              <%= image_tag u.avatar, class: "self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500"%>
+            <% if usersbd.avatar.attached? %>
+              <%= image_tag usersbd.avatar, class: "self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500"%>
             <% else %>
               <img class="self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500" src="https://st2.depositphotos.com/47577860/46283/v/450/depositphotos_462836132-stock-illustration-assassin-deadpool-face-icon.jpg" alt="">
             <% end %>
-            <p class="text-xl font-semibold leading-tight"><%= u.name %> <%= u.last_name %></p>
-            <p class="dark:text-gray-400"><%= u.role %></p>
+            <p class="text-xl font-semibold leading-tight"><%= usersbd.name %> <%= usersbd.last_name %></p>
+            <p class="dark:text-gray-400"><%= usersbd.role %></p>
           </div>
         <% end %>
       <% end %>

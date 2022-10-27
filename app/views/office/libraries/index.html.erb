@@ -31,40 +31,40 @@
         </tr>
         </thead>
         <tbody>
-        <% @libraries.each do |i| %>
+        <% @libraries.each do |library| %>
           <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600 w-full text-sm text-center text-gray-500">
             <div class=" border-gray-700 min-w-full" >
               <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap text-white">
-                <%= i.title %>
+                <%= library.title %>
               </th>
               <td class="py-4 px-6">
-                <%= i.created_at.strftime("%d.%m.%Y") %>
+                <%= library.created_at.strftime("%d.%m.%Y") %>
               </td>
               <td class="py-4 px-6">
-                <% if i.avatar.attached? %>
+                <% if library.avatar.attached? %>
                   <div class="flex flex-row-reverse justify-around -space-x-3 space-x-reverse">
                     <div class="flex flex-row-reverse justify-end -space-x-3 space-x-reverse">
                       <div class="relative flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-full bg-gray-100 text-sm font-bold uppercase text-gray-800 ring ring-yellow-500">
-                        <%= image_tag i.avatar, class:"h-full w-full rounded-full object-cover object-center" %>
+                        <%= image_tag library.avatar, class:"h-full w-full rounded-full object-cover object-center" %>
                       </div>
                     </div>
                   </div>
                 <% end %>
               </td>
               <td class="py-4 px-6 text-white">
-                <%= i.flibraries.map(&:name).sort.join(", ") %>
+                <%= library.flibraries.map(&:name).sort.join(", ") %>
               </td>
               <td class="py-4 px-6 text-white">
-                <%= i.users.map(&:name_last_name).sort.join(", ") %>
+                <%= library.users.map(&:name_last_name).sort.join(", ") %>
               </td>
               <td class="py-4 px-6">
-                <%= link_to(library_path(i), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                <%= link_to(library_path(library), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
                   <i class="material-icons-outlined text-base">visibility</i>
                 <% end %>
-                <%= link_to(edit_office_library_path(i), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
+                <%= link_to(edit_office_library_path(library), class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
                   <i class="material-icons-outlined text-base">edit</i>
                 <% end %>
-                <%= link_to(office_library_path(i), data: { "turbo-method": :delete,
+                <%= link_to(office_library_path(library), data: { "turbo-method": :delete,
                                                             turbo_confirm: "You sure?" }, class: "text-gray-400 hover:text-yellow-500 mr-2") do %>
                   <i class="material-icons-round text-base">delete_outline</i>
                 <% end %>
