@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -35,6 +33,5 @@ class User < ApplicationRecord
 
   validates :role, inclusion: {in: User::ROLE}, on: :update
   validates :about, length: {maximum: 3000}
-
 
 end

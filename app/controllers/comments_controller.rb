@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-  before_action :get_forum
+  before_action :set_forum
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
   def show
@@ -42,7 +42,7 @@ class CommentsController < ApplicationController
 
   private
 
-  def get_forum
+  def set_forum
     @forum = Forum.find(params[:forum_id])
   end
 
