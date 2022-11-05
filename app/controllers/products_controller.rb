@@ -17,9 +17,9 @@ class ProductsController < ApplicationController
   def create
     @internalp = Product.new(product_params)
     if @internalp.save
-      redirect_to office_products_path
+      redirect_to office_products_path, notice: "Product was successfully created."
     else
-      render "office/products/new"
+      render "office/products/new", status: :unprocessable_entity
     end
   end
 
@@ -28,9 +28,9 @@ class ProductsController < ApplicationController
 
   def update
     if @internalp.update product_params
-      redirect_to office_products_path
+      redirect_to office_products_path, notice: "Product was successfully updated."
     else
-      render "office/products/edit"
+      render "office/products/edit", status: :unprocessable_entity
     end
   end
 

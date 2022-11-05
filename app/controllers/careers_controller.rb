@@ -9,23 +9,23 @@ class CareersController < ApplicationController
   def create
     @career = Career.new(career_params)
     if @career.save
-      redirect_to office_careers_path
+      redirect_to office_careers_path, notice: "Career was successfully created."
     else
-      render "office/careers/new"
+      render "office/careers/new", status: :unprocessable_entity
     end
   end
 
   def update
     if @career.update(career_params)
-      redirect_to office_careers_path
+      redirect_to office_careers_path, notice: "Career was successfully updated."
     else
-      render "office/careers/edit"
+      render "office/careers/edit", status: :unprocessable_entity
     end
   end
 
   def destroy
     @career.destroy
-    redirect_to office_cereers_path, status: :see_other
+    redirect_to office_cereers_path, status: :see_other, notice: "Career was successfully destroyed."
   end
 
   private

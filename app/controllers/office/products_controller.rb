@@ -18,7 +18,7 @@ class Office::ProductsController < OfficeController
 
   def destroy
    @internalp.destroy
-   redirect_to office_products_path, status: :see_other
+   redirect_to office_products_path, status: :see_other, notice: "Product was successfully destroyed."
   end
 
   private

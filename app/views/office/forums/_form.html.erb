@@ -1,18 +1,26 @@
 <% if action_name == "new" %>
+
   <div class="w-full max-w-lg mx-auto mt-12">
+
+    <%= render 'office/static_back_pages/errors', object: @forum %>
+
     <%= form_with(url: create_forums_path, model: @forum) do |form| %>
+
       <div class="mb-6">
         <%= form.label :title, class: "block mb-2 text-sm font-medium text-gray-300" %>
-        <%= form.text_field :title, required: true, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Title" %>
+        <%= form.text_field :title, required: true, class: "form-control shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Title" %>
       </div>
+
       <div class="mb-6">
         <%= form.label :content, class: "block mb-2 text-sm font-medium text-gray-300" %>
-        <%= form.text_area :body, required: true, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Content" %>
+        <%= form.text_area :body, required: true, class: "form-control shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Content" %>
       </div>
+
       <div class="mb-6">
         <%= form.label :status, class: "block mb-2 text-sm font-medium text-gray-300" %>
         <%= form.select :status, Forum::STATUS %>
       </div>
+
       <div class="mb-6">
         <%= form.label :category, class: "block mb-2 text-sm font-medium text-gray-300" %>
         <%= form.collection_check_boxes :fforum_ids, Fforum.all,:id,:name do |fforum| %>
@@ -22,32 +30,46 @@
           </div>
         <% end %>
       </div>
+
       <div class="mb-6">
         <%= form.label :avatar, class: "block mb-2 text-sm font-medium text-gray-300" %>
         <%= form.file_field :avatar, class: "text-gray-300 text-sm" %>
       </div>
+
       <div class="mb-6">
         <%= form.label :images, class: "block mb-2 text-sm font-medium text-gray-300" %>
         <%= form.file_field :images, multiple: true, class: "text-gray-300 text-sm" %>
       </div>
+
       <%= form.submit "Submit", class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %>
+
     <% end %>
+
   </div>
+
 <% else %>
+
   <div class="w-full max-w-lg mx-auto mt-12">
+
+    <%= render 'office/static_back_pages/errors', object: @forum %>
+
     <%= form_with model: @forum do |form| %>
+
       <div class="mb-6">
         <%= form.label :title, class: "block mb-2 text-sm font-medium text-gray-300" %>
-        <%= form.text_field :title, required: true, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Title" %>
+        <%= form.text_field :title, required: true, class: "form-control shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Title" %>
       </div>
+
       <div class="mb-6">
         <%= form.label :content, class: "block mb-2 text-sm font-medium text-gray-300" %>
-        <%= form.text_area :body, required: true, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Content" %>
+        <%= form.text_area :body, required: true, class: "form-control shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Content" %>
       </div>
+
       <div class="mb-6">
         <%= form.label :status, class: "block mb-2 text-sm font-medium text-gray-300" %>
         <%= form.select :status, Forum::STATUS %>
       </div>
+
       <div class="mb-6">
         <%= form.label :category, class: "block mb-2 text-sm font-medium text-gray-300" %>
         <%= form.collection_check_boxes :fforum_ids, Fforum.all,:id,:name do |fforum| %>
@@ -57,15 +79,21 @@
           </div>
         <% end %>
       </div>
+
       <div class="mb-6">
         <%= form.label :avatar, class: "block mb-2 text-sm font-medium text-gray-300" %>
         <%= form.file_field :avatar, class: "text-gray-300 text-sm" %>
       </div>
+
       <div class="mb-6">
         <%= form.label :images, class: "block mb-2 text-sm font-medium text-gray-300" %>
         <%= form.file_field :images, multiple: true, class: "text-gray-300 text-sm" %>
       </div>
+
       <%= form.submit "Submit", class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %>
+
     <% end %>
+
   </div>
+
 <% end %>

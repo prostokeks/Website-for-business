@@ -18,7 +18,7 @@ class Office::BlogsController < OfficeController
 
   def destroy
     @blog.destroy
-    redirect_to office_blogs_path, status: :see_other
+    redirect_to office_blogs_path, status: :see_other, notice: "Blog was successfully destroyed."
   end
 
   private

@@ -1,5 +1,9 @@
 <div class="w-full max-w-lg mx-auto mt-12">
+
+  <%= render 'office/static_back_pages/errors', object: @salary %>
+
   <%= form_with model: @salary do |form| %>
+
     <div class="grid md:grid-cols-2 md:gap-6">
       <div class="relative z-0 mb-6 w-full group">
         <%= form.label :year, class: "block mb-2 text-sm font-medium text-gray-300" %>
@@ -20,10 +24,12 @@
         <% end %>
       </div>
     </div>
+
     <div class="mb-6">
       <%= form.label :salary, class: "block mb-2 text-sm font-medium text-gray-300" %>
-      <%= form.text_field :salary, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Salary" %>
+      <%= form.text_field :salary, class: "form-control shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Salary" %>
     </div>
+
     <div class="mb-6">
       <%= form.label :team, class: "block mb-2 text-sm font-medium text-gray-300" %>
       <%= form.collection_check_boxes :user_ids, User.all.where.not(work_group: 'User'), :id, :name_with_initial do |user| %>
@@ -33,6 +39,9 @@
         </div>
       <% end %>
     </div>
+
     <%= form.submit "Submit", class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %>
+
   <% end %>
+
 </div>

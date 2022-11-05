@@ -18,7 +18,7 @@ class Office::CareersController < OfficeController
 
   def destroy
     @career.destroy
-    redirect_to office_careers_path, status: :see_other
+    redirect_to office_careers_path, status: :see_other, notice: "Career was successfully destroyed."
   end
 
   private

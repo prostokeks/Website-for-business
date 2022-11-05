@@ -19,9 +19,9 @@ class LibrariesController < ApplicationController
   def create
     @library = Library.new(library_params)
     if @library.save
-      redirect_to library_path(@library)
+      redirect_to library_path(@library), notice: "Library was successfully created."
     else
-      render "office/libraries/new"
+      render "office/libraries/new", status: :unprocessable_entity
     end
   end
 
@@ -30,9 +30,9 @@ class LibrariesController < ApplicationController
 
   def update
     if @library.update(library_params)
-      redirect_to library_path(@library)
+      redirect_to library_path(@library), notice: "Library was successfully updated."
     else
-      render "office/libraries/edit"
+      render "office/libraries/edit", status: :unprocessable_entity
     end
   end
 

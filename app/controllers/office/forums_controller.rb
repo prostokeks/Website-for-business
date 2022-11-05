@@ -16,9 +16,9 @@ class Office::ForumsController < OfficeController
   def create
     @forum = Forum.new(forum_params)
     if @forum.save
-      redirect_to forums_path
+      redirect_to forums_path, notice: "Forum was successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -27,15 +27,15 @@ class Office::ForumsController < OfficeController
 
   def update
     if @forum.update(forum_params)
-      redirect_to forum_path(@forum)
+      redirect_to forum_path(@forum), notice: "Forum was successfully updated."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @forum.destroy
-    redirect_to office_forums_path, status: :see_other
+    redirect_to office_forums_path, status: :see_other, notice: "Forum was successfully destroyed."
   end
 
   private

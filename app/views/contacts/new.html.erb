@@ -1,3 +1,5 @@
+<%= render 'office/static_back_pages/errors', object: @contact %>
+
 <section class="py-6 dark:bg-gray-800 dark:text-gray-50 pt-32">
   <div class="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
     <div class="py-6 md:py-0 md:px-6">
@@ -29,19 +31,19 @@
       <form class="flex flex-col py-6 space-y-6 md:py-0 md:px-6 ng-untouched ng-pristine ng-valid">
         <label class="block pl-6">
           <%= contact.label "Full name" %>
-          <%= contact.text_field :name, required: true, class: "bg-gray-800 border border-gray-500 text-white rounded-lg focus:border-blue block w-full p-2 mt-2", placeholder: "Leroy Jenkins" %>
+          <%= contact.text_field :name, required: true, class: "form-control bg-gray-800 border border-gray-500 text-white rounded-lg focus:border-blue block w-full p-2 mt-2", placeholder: "Leroy Jenkins" %>
         </label>
         <label class="block pl-6 py-6">
           <%= contact.label :mobile%>
-          <%= contact.text_field :mobile, required: true, class: "bg-gray-800 border border-gray-500 text-white rounded-lg focus:border-blue block w-full p-2 mt-2", placeholder: "+380638968944" %>
+          <%= contact.text_field :mobile, required: true, class: "form-control bg-gray-800 border border-gray-500 text-white rounded-lg focus:border-blue block w-full p-2 mt-2", placeholder: "+380638968944" %>
         </label>
         <label class="block pl-6 ">
           <%= contact.label :email %>
-          <%= contact.text_field :email, required: true, class: "bg-gray-800 border border-gray-500 text-white rounded-lg focus:border-blue block w-full p-2 mt-2", placeholder: "dosi@gmail.com" %>
+          <%= contact.text_field :email, required: true, class: "form-control bg-gray-800 border border-gray-500 text-white rounded-lg focus:border-blue block w-full p-2 mt-2", placeholder: "dosi@gmail.com" %>
         </label>
         <label class="block pl-6 py-6">
           <%= contact.label :message %>
-          <%= contact.text_area :body, required: true, class: "bg-gray-800 border border-gray-500 text-white rounded-lg focus:border-blue block w-full p-2 mt-2" %>
+          <%= contact.text_area :body, required: true, class: "form-control bg-gray-800 border border-gray-500 text-white rounded-lg focus:border-blue block w-full p-2 mt-2" %>
         </label>
         <div class= "block pl-6">
           <%= contact.submit "Submit", class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %>

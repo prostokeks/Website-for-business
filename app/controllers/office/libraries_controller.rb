@@ -18,7 +18,7 @@ class Office::LibrariesController < OfficeController
 
   def destroy
     @library.destroy
-    redirect_to office_libraries_path, status: :see_other
+    redirect_to office_libraries_path, status: :see_other, notice: "Library was successfully destroyed."
   end
 
   private

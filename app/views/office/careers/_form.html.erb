@@ -1,21 +1,29 @@
 <div class="w-full max-w-lg mx-auto mt-12">
+
+  <%= render 'office/static_back_pages/errors', object: @career %>
+
   <%= form_with model: @career do |form| %>
+
     <div class="mb-6">
       <%= form.label :title, class: "block mb-2 text-sm font-medium text-gray-300" %>
-      <%= form.text_field :title, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Title" %>
+      <%= form.text_field :title, class: "form-control shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Title" %>
     </div>
+
     <div class="mb-6">
       <%= form.label :requirement, class: "block mb-2 text-sm font-medium text-gray-300" %>
-      <%= form.text_area :requirement, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Content" %>
+      <%= form.text_area :requirement, class: "form-control shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Content" %>
     </div>
+
     <div class="mb-6">
       <%= form.label :benefit, class: "block mb-2 text-sm font-medium text-gray-300" %>
-      <%= form.text_area :benefit, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Content" %>
+      <%= form.text_area :benefit, class: "form-control shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Content" %>
     </div>
+
     <div class="mb-6">
       <%= form.label :salary, class: "block mb-2 text-sm font-medium text-gray-300" %>
-      <%= form.text_field :salary, class: "shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Title" %>
+      <%= form.text_field :salary, class: "form-control shadow-sm border text-sm rounded-md block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm-light", placeholder: "Title" %>
     </div>
+
     <div class="grid md:grid-cols-3 md:gap-6">
       <div class="relative z-0 mb-6 w-full group">
         <%= form.label "Work load", class: "block mb-2 text-sm font-medium text-gray-300" %>
@@ -30,6 +38,9 @@
         <%= form.select :status, Career::STATUS %>
       </div>
     </div>
+
     <%= form.submit "Submit", class: "px-8 py-2 font-semibold border rounded border-white text-white cursor-pointer hover:border-blue-500 hover:text-blue-500" %>
+
   <% end %>
+
 </div>

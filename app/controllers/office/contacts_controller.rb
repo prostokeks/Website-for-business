@@ -14,7 +14,7 @@ class Office::ContactsController < OfficeController
 
   def destroy
     @contact.destroy
-    redirect_to office_contacts_path, status: :see_other
+    redirect_to office_contacts_path, status: :see_other, notice: "Contact was successfully destroyed."
   end
 
   private
