@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
   end
 
   def update
-    if @comment.update comment_params
+    if @comment.update(comment_params)
       redirect_to root_path
     else
       render forums_path

@@ -11,7 +11,7 @@ class SalariesController < ApplicationController
 
   def update
     @salary = Salary.find(params[:id])
-    if @salary.update salary_params
+    if @salary.update(salary_params)
       redirect_to office_salaries_year_path(1), notice: "Salary was successfully updated."
     else
       render "office/salaries/edit"

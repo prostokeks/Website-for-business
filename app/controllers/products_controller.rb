@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @internalp.update product_params
+    if @internalp.update(product_params)
       redirect_to office_products_path, notice: "Product was successfully updated."
     else
       render "office/products/edit", status: :unprocessable_entity
